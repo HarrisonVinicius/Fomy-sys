@@ -80,7 +80,7 @@
                     Continue
                     </v-btn>
 
-                    <v-btn flat>Cancel</v-btn>
+                    <v-btn flat @click="closeCreateItem()">Cancel</v-btn>
                 </v-stepper-content>
 
                 <v-stepper-content step="2">
@@ -129,7 +129,7 @@
                     Continue
                     </v-btn>
 
-                    <v-btn flat>Cancel</v-btn>
+                    <v-btn flat @click="closeCreateItem()">Cancel</v-btn>
                 </v-stepper-content>
 
                 <v-stepper-content step="3">
@@ -181,8 +181,7 @@
                     Continue
                     </v-btn>
 
-                    <v-btn flat>Cancel</v-btn>
-                    <v-btn flat @click="closeCreateItem()">voltar</v-btn>
+                    <v-btn flat @click="closeCreateItem()">Cancel</v-btn>
                 </v-stepper-content>
             </v-stepper-items>
         </v-stepper>

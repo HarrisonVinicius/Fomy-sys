@@ -99,7 +99,7 @@
                
                                     </v-card-text>
                                     <v-card-actions>
-                                        <v-btn flat color="pink darken-1x   ">
+                                        <v-btn flat color="pink darken-1x" @click="toggleCreateSize()">
                                             <v-icon> add </v-icon>
                                             Adicionar Item
                                         </v-btn>
@@ -128,7 +128,7 @@
                                     
                                     </v-card-text>
                                     <v-card-actions>
-                                        <v-btn flat color="pink darken-1x   ">
+                                        <v-btn flat color="pink darken-1x" @click="toggleCreateBorder()">
                                             <v-icon> add </v-icon>
                                             Adicionar Item
                                         </v-btn>
@@ -158,7 +158,7 @@
                
                                     </v-card-text>
                                     <v-card-actions>
-                                        <v-btn flat color="pink darken-1x   ">
+                                        <v-btn flat color="pink darken-1x" @click="toggleCreateFlavor()">
                                             <v-icon> add </v-icon>
                                             Adicionar Item
                                         </v-btn>
@@ -174,8 +174,13 @@
                     </div>                    
                 </v-flex>
             </v-layout>
+            
             <CreateCategory ref="teste" />
             <CreateItem ref="teste2" />
+            <CreateSize ref="teste3" />
+            <CreateBorder ref="teste4" />
+            <CreateFlavor ref="teste5" />
+        
         </v-container>
 
     </div>
@@ -185,6 +190,9 @@
 import SideMenu from '@/components/SideMenu'
 import CreateCategory from '@/components/CreateCategory'
 import CreateItem from '@/components/CreateItem'
+import CreateSize from '@/components/CreateSize'
+import CreateBorder from '@/components/CreateBorder'
+import CreateFlavor from '@/components/CreateFlavor'
 
 export default {
   name: 'App',
@@ -192,7 +200,10 @@ export default {
   components: {
     SideMenu,
     CreateCategory,
-    CreateItem
+    CreateItem,
+    CreateSize,
+    CreateBorder,
+    CreateFlavor
   },
   
   data () {
@@ -277,7 +288,19 @@ export default {
 
         toggleCreateItem(){
             this.$refs.teste2.dialogCreateItem = !this.$refs.teste2.dialogCreateItem
-        }
+        },
+        
+        toggleCreateSize(){
+            this.$refs.teste3.dialogCreateSize = !this.$refs.teste3.dialogCreateSize
+        },
+        
+        toggleCreateBorder(){
+            this.$refs.teste4.dialogCreateBorder = !this.$refs.teste4.dialogCreateBorder
+        },
+        
+        toggleCreateFlavor(){
+            this.$refs.teste5.dialogCreateFlavor = !this.$refs.teste5.dialogCreateFlavor
+        }  
   }
 }
 </script>

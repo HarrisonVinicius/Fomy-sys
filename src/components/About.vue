@@ -37,6 +37,28 @@
                                 ></v-text-field>
                                 </v-flex>
                             </v-layout>
+                            <v-layout style="display:flex; justify-content: space-between;">
+                                <v-flex
+                                xs12
+                                md6
+                                >
+                                <v-text-field
+                                    :counter="50"
+                                    label="ENDEREÇO"
+                                    required
+                                ></v-text-field>
+                                </v-flex>
+                                
+                                <v-flex
+                                xs12
+                                md5
+                                >
+                                <v-text-field
+                                    label="TELEFONE"
+                                    required
+                                ></v-text-field>
+                                </v-flex>
+                            </v-layout>
                             <br>
                             <v-divider></v-divider>
                             <br>
@@ -65,7 +87,7 @@
                                                 @blur="$v.select.$touch()"
                                                 ></v-select>
                                             </td>
-                                            <td class="text-xs-right td_border" style="border-left: 1px solid grey;" v-if="">
+                                            <td class="text-xs-right td_border" style="border-left: 1px solid grey;">
                                                 <v-layout>
                                                     <v-flex>
                                                         <v-text-field
