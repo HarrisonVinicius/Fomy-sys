@@ -1,0 +1,18 @@
+{
+    "sellers": [
+      {
+        "name": "Gil lanches",
+        "category": "Lanchonete"
+    },
+    
+      {
+        "name": "Poti Pizzaria",
+        "category": "Pizzaria"
+      },
+
+      {
+        "name": "Rerys bar",
+        "category": "Bar e Bistro"  
+      }
+    ]
+  }
