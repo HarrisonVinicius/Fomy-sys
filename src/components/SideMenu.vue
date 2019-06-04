@@ -50,6 +50,7 @@
           { title: 'Home', icon: 'dashboard', route:'/' },
           { title: 'Cárdapio', icon: 'menu', route:'/menu' },
           { title: 'Informações do Estabelecimento', icon: 'info', route:'/about' },
+          { title: 'Editar entregas', icon: 'map', route:'/delivery' }, 
           { title: 'Sair da Conta', icon: 'exit_to_app', route:'/login' }, 
         ],
         right: null
