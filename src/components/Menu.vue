@@ -282,6 +282,13 @@ export default {
   },
 
   methods: {
+        // fetchCategories(){
+        //     this.$http.get('...')
+        //         .then(function(response){
+        //             this.StandartCategories = JSON.parse(response.body)
+        //         })
+        // },
+        
         toggleCreateCategory(){
             this.$refs.teste.dialogCreateCategory = !this.$refs.teste.dialogCreateCategory
         },
@@ -301,6 +308,10 @@ export default {
         toggleCreateFlavor(){
             this.$refs.teste5.dialogCreateFlavor = !this.$refs.teste5.dialogCreateFlavor
         }  
-  }
+  },
+
+//   created: function() {
+//       this.fetchCategories();
+//   }
 }
 </script>

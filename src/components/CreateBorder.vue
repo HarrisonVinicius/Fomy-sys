@@ -8,10 +8,11 @@
         <v-card-text>
             <v-layout wrap>
                 <v-flex xs12 md5 mr-5>
-                    <v-text-field label="NOME" required></v-text-field>
+                    <v-text-field label="NOME" required v-model="name"></v-text-field>
                 </v-flex>
                 <v-flex xs12 md5>
                     <v-text-field
+                    v-model="price"
                     label="PREÇO"
                     value="10.00"
                     prefix="R$"
@@ -36,10 +37,30 @@ export default {
         return {
             dialog: false,
             dialogCreateBorder: false,
+            name: '',
+            price: ''
         }
     },
 
     methods: {
+        createBorder(){
+          if(this.name && this.price){
+            let newBorder = {
+              name: this.name,
+              price: this.price
+            }
+          console.log(newBorder)
+          this.dialogCreateBorder = false
+          }
+          
+          // this.$http.post('...', newSize)
+          //   .then(function(response){
+          //     console.log(newSize)
+          //     this.dialogCreateCategory = false
+          //   });
+        
+        },
+        
         closeCreateBorder() {
             this.dialogCreateBorder = false
         },

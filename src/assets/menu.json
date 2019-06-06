@@ -1,0 +1,51 @@
+{
+    "categories": [
+      {
+        "name": "Hamburguers",
+        "itens": [
+          {
+            "code": 1,
+            "name": "x-tudo",
+            "price": 24.99,
+            "details": "hamburguer simples"
+          },
+          {
+            "code": 2,
+            "name": "x-tudo duplo",
+            "price": 28.50,
+            "details": "hamburguer duplo"
+          },
+          {
+            "code": 3,
+            "name": "x-egg",
+            "price": 20.60,
+            "details": "hamburguer simples com ovo"
+          }
+        ]
+      },
+    
+      {
+        "name": "Pizzas",
+        "itens": [
+          {
+            "code": 4,
+            "name": "calabresa",
+            "price": 24.75,
+            "details": "calabresa simples"
+          },
+          {
+            "code": 5,
+            "name": "calabresa especial",
+            "price": 28.00,
+            "details": "calabresa com tempero especial"
+          },
+          {
+            "code": 6,
+            "name": "super calabresa",
+            "price": 20.00,
+            "details": "calabresa com um super tempero"
+          }
+        ]
+      }
+    ]
+  }
