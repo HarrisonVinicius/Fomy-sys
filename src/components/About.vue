@@ -12,52 +12,50 @@
                     <h2 style="color: grey;"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed et culpa molestias! Facilis dolores quae incidunt ipsam dolore reiciendis voluptatibus est vitae, exercitationem, quidem sed iure, ullam tempora numquam laboriosam?</h2>
                     <br>
                     <v-divider></v-divider>
-                    <br>
                     <v-form>
                         <v-container>
+                            <v-btn flat @click="toggleEditInfos()">
+                                <v-icon>edit</v-icon>
+                                <span>Editar Informações </span>
+                            </v-btn>
+                            <br>
                             <v-layout style="display:flex; justify-content: space-between;">
                                 <v-flex
                                 xs12
                                 md6
                                 >
-                                <v-text-field
-                                    :counter="10"
-                                    label="NOME DO ESTABELECIMENTO"
-                                    required
-                                ></v-text-field>
-                                </v-flex>
-                                
-                                <v-flex
-                                xs12
-                                md5
-                                >
-                                <v-text-field
-                                    label="E-MAIL"
-                                    required
-                                ></v-text-field>
-                                </v-flex>
-                            </v-layout>
-                            <v-layout style="display:flex; justify-content: space-between;">
-                                <v-flex
-                                xs12
-                                md6
-                                >
-                                <v-text-field
-                                    :counter="50"
-                                    label="ENDEREÇO"
-                                    required
-                                ></v-text-field>
-                                </v-flex>
-                                
-                                <v-flex
-                                xs12
-                                md5
-                                >
-                                <v-text-field
-                                    label="TELEFONE"
-                                    required
-                                ></v-text-field>
-                                </v-flex>
+                                    <h2> Nome do Estabelecimento </h2>
+                                    <v-layout row wrap style="display: flex; align-items:center;">
+                                        <h3 style="color: grey;"> {{ this.info.info.name }} </h3>
+                                    </v-layout>
+                                    <br>
+                                    <h2> Slug do Estabelecimento </h2>
+                                    <v-layout row wrap style="display: flex; align-items:center;">
+                                        <h3 style="color: grey;"> {{ this.info.info.slug }} </h3>
+                                    </v-layout>
+                                    <br>
+                                    <h2> Email </h2>
+                                    <v-layout row wrap style="display: flex; align-items:center;">
+                                        <h3 style="color: grey;"> {{ this.info.info.email }} </h3>
+                                    </v-layout>
+                                    <br>
+                                    <h2> Telefone (Whatsapp) </h2>
+                                    <v-layout row wrap style="display: flex; align-items:center;">
+                                        <h3 style="color: grey;"> {{ this.info.info.whatsapp }} </h3>
+                                    </v-layout>
+                                    <br>
+                                    <h2> Endereço </h2>
+                                    <v-layout row wrap style="display: flex; align-items:center;">
+                                        <h3 style="color: grey;"> {{ this.info.info.address }} </h3>
+                                    </v-layout>
+                                    <br>
+                                    <h2> logo </h2>
+                                    <v-layout row wrap style="display: flex; align-items:center;">
+                                       <v-btn flat>
+                                           <span> escolher foto </span>
+                                       </v-btn>
+                                    </v-layout>
+                                </v-flex> 
                             </v-layout>
                             <br>
                             <v-divider></v-divider>
@@ -82,7 +80,6 @@
                                                 :items="turnos"
                                                 label="Turnos"
                                                 required
-                                                return-object="true"
                                                 @change="$v.select.$touch()"
                                                 @blur="$v.select.$touch()"
                                                 ></v-select>
@@ -176,17 +173,25 @@
                     </v-form>
                 </v-flex>
             </v-layout>   
+            <EditInfos ref="teste" />
         </v-container>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import SideMenu from '@/components/SideMenu'
+import EditInfos from '@/components/EditInfos'
 
 export default {
     name: 'about',
+    
     data () {
         return {     
+            sellerName: '',
+            sellerMail: '',
+            sellerAddress: '',
+            sellerPhone: '',
             SelectValue: '',
             times: [
                 {
@@ -234,11 +239,23 @@ export default {
     },
 
     components: {
-        SideMenu
+        SideMenu,
+        EditInfos
     },
 
     methods: {
-            
+        toggleEditInfos(){
+            this.$refs.teste.dialogEditInfos = !this.$refs.teste.dialogEditInfos
+        },
+    },
+
+    computed: {
+        ...mapState(['seller']),
+
+        info() {
+            return this.seller
+        }
+
     }
 }
 </script>
