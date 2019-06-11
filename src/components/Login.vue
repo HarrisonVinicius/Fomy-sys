@@ -29,10 +29,16 @@
 
                                 <v-text-field
                                 v-model="password"
-                                :rules="passRules"
+                                :append-icon="show1 ? 'visibility' : 'visibility_off'"
+                                :rules="[rules.required, rules.min]"
+                                :type="show1 ? 'text' : 'password'"
+                                name="input-10-1"
                                 label="Senha"
-                                required
+                                hint="At least 8 characters"
+                                counter
+                                @click:append="show1 = !show1"
                                 ></v-text-field>
+                                <small>Esqueci minha senha </small>
                             </v-form>
                         </v-card-text>
                         <v-card-actions>
@@ -44,7 +50,7 @@
                             >
                                 Login
                             </v-btn>
-                            <v-btn flat color="orange">Esqueci minha senha</v-btn>
+                            <v-btn flat color="orange" router to="./register"> Cadastrar </v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-flex>
@@ -54,66 +60,84 @@
 </template>
 
 <script>
-  import axios from 'axios'
+    import axios from 'axios'
+    import api from '@/config/api.json'
+    import { mapActions } from 'vuex'
+    export default {
+        data: () => ({
+            show1: false,
+            valid: true,
+            password: '',
+            rules: {
+            required: value => !!value || 'Required.',
+            min: v => v.length >= 8 || 'Min 8 characters',
+            },
+            email: '',
+            emailRules: [
+                v => !!v || 'E-mail is required',
+                v => /.+@.+/.test(v) || 'E-mail must be valid'
+            ],
+        }),
 
-  export default {
-    data: () => ({
-      valid: true,
-      password: '',
-      passRules: [
-        v => !!v || 'Pass is required',
-        // v => (v && v.length <= 10) || 'Name must be less than 10 characters'
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ],
-    }),
+        methods: {
+            validate () {
+                if (this.$refs.form.validate()) {
+                    this.snackbar = true
+                    this.loginUser()
+                }
+            },
+            
+            /*
+            *
+            */            
 
-    methods: {
-        validate () {
-            if (this.$refs.form.validate()) {
-                this.snackbar = true
-                this.$router.push('/')
-                // this.loginUser()
-            }
-        },
-    
-        // loginUser() {
-        //     console.log("passou por aqui")
-        //     this.postUserData()
-        // },  
+            loginUser() {
+                console.log("passou por aqui")
+                this.postUserData()
+            },
+
+            /*
+            *
+            */            
+            
+            async postUserData () {
+                await axios.post(`${api.apiUrl}/login`, {
+                    email: this.email,
+                    password: this.password,
+                    login_type: 'client'
+                })
+                .then(response => {
+                    if( response.status === 200 ) {
+                        let user = response.data
+                        localStorage.setItem('user', JSON.stringify(user))
+                        // this.userData(user)
+                        // this.setAuth(true)
+                        this.$router.push('/')
+                    } else {
+                    
+                        if(response.data.usermail){
+                        this.error_email = response.data.usermail
+                        }
+
+                        if(response.data.userpass){
+                        this.error_pass = response.data.userpass
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    this.error_mail = true
+                    this.error_pass = true
+                })
+            },
+
+            /*
+            *
+            */              
         
-        // async postUserData () {
-        //     await axios.post(`api`, {
-        //         usermail: this.email,
-        //         userpass: this.password
-        //     })
-        //     .then(response => {
-        //         if( response.status === 200 ) {
-        //         let user = response.data
-        //         // localStorage.setItem('user', JSON.stringify(user))
-        //         // this.userData(user)
-        //         // this.setAuth(true)
-        //         this.$router.push('/')
-        //         } else {
-                
-        //         // if(response.data.usermail){
-        //         //   this.error_email = response.data.usermail
-        //         // }
-
-        //         // if(response.data.userpass){
-        //         //   this.error_pass = response.data.userpass
-        //         // }
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
-        //     },
+            // ...mapActions([''])    
+        }
     }
-  }
 </script>
 
 <style>

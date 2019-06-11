@@ -14,7 +14,6 @@ export default new Vuex.Store({
   },
 
   state: {
-    
     auth: {
       authenticated: false,
     },
@@ -35,6 +34,7 @@ export default new Vuex.Store({
     SET_SELLER_SLUG (state, slug) { state.seller.info.slug = slug },
     SET_SELLER_NAME (state, name) { state.seller.info.name = name },
     SET_SELLER_EMAIL (state, email) { state.seller.info.email = email },
+    SET_SELLER_PASSWORD (state, password) { state.seller.info.password = password },
     SET_SELLER_WHATSAPP: (state, whatsapp) => { state.seller.info.whatsapp = whatsapp },
     SET_SELLER_LOGO: (state, logo) => { state.seller.info.logo = logo },
     SET_SELLER_BANNER: (state, banner) => { state.seller.info.banner = banner },
@@ -58,6 +58,7 @@ export default new Vuex.Store({
     setSellerSlug ({commit}, slug) {commit('SET_SELLER_SLUG', slug)},
     setSellerName ({commit}, name) { commit('SET_SELLER_NAME', name) },
     setSellerEmail ({commit}, email) { commit('SET_SELLER_EMAIL', email) },
+    setSellerPassword ({commit}, password) { commit('SET_SELLER_PASSWORD', password) },
     setSellerWhatsapp ({commit}, whatsapp) { commit('SET_SELLER_WHATSAPP', whatsapp) },
     setSellerLogo ({commit}, logo) { commit('SET_SELLER_LOGO', logo) },
     setSellerBanner ({commit}, banner) { commit('SET_SELLER_BANNER', banner) },
