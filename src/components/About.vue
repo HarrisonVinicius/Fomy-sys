@@ -1,181 +1,170 @@
-<template>
-    <div class="about">
-         <SideMenu />
-        <v-container>
-            <v-layout row wrap>
-                <v-flex xs12 style="margin-left: 20%;">
-                    <br>
-                    <br>
-                    <br>
-                    <h1> Informações Gerais </h1>
-                    <br>
-                    <h2 style="color: grey;"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed et culpa molestias! Facilis dolores quae incidunt ipsam dolore reiciendis voluptatibus est vitae, exercitationem, quidem sed iure, ullam tempora numquam laboriosam?</h2>
-                    <br>
-                    <v-divider></v-divider>
-                    <v-form>
-                        <v-container>
-                            <v-btn flat @click="toggleEditInfos()">
-                                <v-icon>edit</v-icon>
-                                <span>Editar Informações </span>
-                            </v-btn>
-                            <br>
-                            <v-layout style="display:flex; justify-content: space-between;">
-                                <v-flex
+<template lang="pug">
+    div( class="about")
+        SideMenu 
+        v-container
+            v-layout(row wrap)
+                v-flex(xs12 style="margin-left: 20%;")
+                    br
+                    br
+                    br
+                    h1 Informações Gerais 
+                    br
+                    h2(style="color: grey;") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed et culpa molestias! Facilis dolores quae incidunt ipsam dolore reiciendis voluptatibus est vitae, exercitationem, quidem sed iure, ullam tempora numquam laboriosam?
+                    br
+                    v-divider
+                    v-form
+                        v-container
+                            v-btn(flat @click="toggleEditInfos()")
+                                v-icon edit
+                                span Editar Informações 
+                            
+                            br
+                            v-layout(style="display:flex; justify-content: space-between;")
+                                v-flex(
                                 xs12
-                                md6
-                                >
-                                    <h2> Nome do Estabelecimento </h2>
-                                    <v-layout row wrap style="display: flex; align-items:center;">
-                                        <h3 style="color: grey;"> {{ this.info.info.name }} </h3>
-                                    </v-layout>
-                                    <br>
-                                    <h2> Slug do Estabelecimento </h2>
-                                    <v-layout row wrap style="display: flex; align-items:center;">
-                                        <h3 style="color: grey;"> {{ this.info.info.slug }} </h3>
-                                    </v-layout>
-                                    <br>
-                                    <h2> Email </h2>
-                                    <v-layout row wrap style="display: flex; align-items:center;">
-                                        <h3 style="color: grey;"> {{ this.info.info.email }} </h3>
-                                    </v-layout>
-                                    <br>
-                                    <h2> Telefone (Whatsapp) </h2>
-                                    <v-layout row wrap style="display: flex; align-items:center;">
-                                        <h3 style="color: grey;"> {{ this.info.info.whatsapp }} </h3>
-                                    </v-layout>
-                                    <br>
-                                    <h2> Endereço </h2>
-                                    <v-layout row wrap style="display: flex; align-items:center;">
-                                        <h3 style="color: grey;"> {{ this.info.info.address }} </h3>
-                                    </v-layout>
-                                    <br>
-                                    <h2> logo </h2>
-                                    <v-layout row wrap style="display: flex; align-items:center;">
-                                       <v-btn flat>
-                                           <span> escolher foto </span>
-                                       </v-btn>
-                                    </v-layout>
-                                </v-flex> 
-                            </v-layout>
-                            <br>
-                            <v-divider></v-divider>
-                            <br>
-                            <h3> HORARIO DE FUNCIONAMENTO </h3>
-                            <br>
-                            <v-card>
-                                <v-card-text>
-                                    <v-data-table
+                                md6)
+                                
+                                    h2 Nome do Estabelecimento 
+                                    v-layout(row wrap style="display: flex; align-items:center;")
+                                        h3(style="color: grey;") {{ this.info.info.name }} 
+                                    
+                                    br
+                                    h2 Slug do Estabelecimento 
+                                    v-layout(row wrap style="display: flex; align-items:center;")
+                                        h3(style="color: grey;") {{ this.info.info.slug }} 
+                                    
+                                    br
+                                    h2 Email 
+                                    v-layout(row wrap style="display: flex; align-items:center;")
+                                        h3(style="color: grey;") {{ this.info.info.email }} 
+                                    
+                                    br
+                                    h2 Telefone (Whatsapp) 
+                                    v-layout(row wrap style="display: flex; align-items:center;")
+                                        h3(style="color: grey;") {{ this.info.info.whatsapp }} 
+                                    
+                                    br
+                                    h2 Endereço 
+                                    v-layout(row wrap style="display: flex; align-items:center;")
+                                        h3(style="color: grey;") {{ this.info.info.address }} 
+                                    
+                                    br
+                                    h2 logo 
+                                    v-layout(row wrap style="display: flex; align-items:center;")
+                                       v-btn(flat)
+                                           span escolher foto 
+                                       
+                                    
+                                 
+                            
+                            br
+                            v-divider
+                            br
+                            h3 HORARIO DE FUNCIONAMENTO 
+                            br
+                            v-card
+                                v-card-text
+                                    v-data-table(
                                     :items="times"
                                     class="elevation-1"
                                     hide-actions
-                                    hide-headers
-                                    >
-                                        <template v-slot:items="props">
-                                            <td>{{ props.item.name }}</td>
-                                            <td class="text-xs-right">{{ props.item.category }}</td>
-                                            <td class="text-xs-right td_border" style="border-left: 1px solid grey;">
-                                                <v-select
+                                    hide-headers)
+                                    
+                                        template(v-slot:items="props")
+                                            td {{ props.item.name }}
+                                            td(class="text-xs-right") {{ props.item.category }}
+                                            td(class="text-xs-right td_border" style="border-left: 1px solid grey;")
+                                                v-select(
                                                 item-text="text"
                                                 item-value="value"
                                                 :items="turnos"
                                                 label="Turnos"
                                                 required
                                                 @change="$v.select.$touch()"
-                                                @blur="$v.select.$touch()"
-                                                ></v-select>
-                                            </td>
-                                            <td class="text-xs-right td_border" style="border-left: 1px solid grey;">
-                                                <v-layout>
-                                                    <v-flex>
-                                                        <v-text-field
-                                                        label="ABRE"
-                                                        value="12:30:00"
-                                                        type="time"
-                                                        class="mr-5"
-                                                        ></v-text-field>
-                                                    </v-flex>
-
-                                                    <v-flex>
-                                                        <v-text-field
-                                                        label="FECHA"
-                                                        value="12:30:00"
-                                                        type="time"
-                                                        ></v-text-field>
-                                                    </v-flex>
+                                                @blur="$v.select.$touch()")
                                                 
-                                                </v-layout>
-                                            </td>
-                                            <td class="text-xs-right td_border">
-                                                <v-layout>
-                                                    <v-flex>
-                                                        <v-text-field
+                                            
+                                            td(class="text-xs-right td_border" style="border-left: 1px solid grey;")
+                                                v-layout
+                                                    v-flex
+                                                        v-text-field(
                                                         label="ABRE"
                                                         value="12:30:00"
                                                         type="time"
-                                                        class="mr-5"
-                                                        ></v-text-field>
-                                                    </v-flex>
+                                                        class="mr-5")
+                                                        
+                                                    
 
-                                                    <v-flex>
-                                                        <v-text-field
+                                                    v-flex
+                                                        v-text-field(
                                                         label="FECHA"
                                                         value="12:30:00"
-                                                        type="time"
-                                                        ></v-text-field>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </td>
-                                            <td class="text-xs-right td_border">
-                                                <v-layout>
-                                                    <v-flex>
-                                                        <v-text-field
+                                                        type="time")
+                                                        
+                                                    
+                                                
+                                                
+                                            
+                                            td(class="text-xs-right td_border")
+                                                v-layout
+                                                    v-flex
+                                                        v-text-field(
                                                         label="ABRE"
                                                         value="12:30:00"
                                                         type="time"
-                                                        class="mr-5"
-                                                        ></v-text-field>
-                                                    </v-flex>
+                                                        class="mr-5")
+                                                        
+                                                    
 
-                                                    <v-flex>
-                                                        <v-text-field
+                                                    v-flex
+                                                        v-text-field(
                                                         label="FECHA"
                                                         value="12:30:00"
-                                                        type="time"
-                                                        ></v-text-field>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </td>
-                                            <td class="text-xs-right td_border">
-                                                <v-layout>
-                                                    <v-flex>
-                                                        <v-text-field
+                                                        type="time")
+                                                        
+                                                    
+                                                
+                                            
+                                            td(class="text-xs-right td_border")
+                                                v-layout
+                                                    v-flex
+                                                        v-text-field(
                                                         label="ABRE"
                                                         value="12:30:00"
                                                         type="time"
-                                                        class="mr-5"
-                                                        ></v-text-field>
-                                                    </v-flex>
+                                                        class="mr-5")
+                                                        
+                                                    
 
-                                                    <v-flex>
-                                                        <v-text-field
+                                                    v-flex
+                                                        v-text-field(
                                                         label="FECHA"
                                                         value="12:30:00"
+                                                        type="time")
+                                                        
+                                                    
+                                                
+                                            
+                                            td(class="text-xs-right td_border")
+                                                v-layout
+                                                    v-flex
+                                                        v-text-field(
+                                                        label="ABRE"
+                                                        value="12:30:00"
                                                         type="time"
-                                                        ></v-text-field>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </td>
-                                        </template>
-                                    </v-data-table>
-                                </v-card-text>
-                            </v-card>
-                        </v-container>
-                    </v-form>
-                </v-flex>
-            </v-layout>   
-            <EditInfos ref="teste" />
-        </v-container>
-    </div>
+                                                        class="mr-5")
+                                                        
+                                                    
+
+                                                    v-flex
+                                                        v-text-field(
+                                                        label="FECHA"
+                                                        value="12:30:00"
+                                                        type="time")
+                                                        
+               
+            EditInfos(ref="teste") 
+       
 </template>
 
 <script>

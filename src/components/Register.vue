@@ -1,26 +1,26 @@
-<template>
-  <v-layout style="margin-top: 25vh;">
-    <v-flex xs12 sm6 offset-sm3>
-        <v-card>
-            <v-container>
-                <v-card-title primary-title>
-                    <div>
-                        <h3 class="headline mb-0"> Cadastro no Sistema </h3>
-                    </div>
-                </v-card-title>
-                <v-form
+<template lang="pug">
+  v-layout(style="margin-top: 25vh;")
+    v-flex(xs12 sm6 offset-sm3)
+        v-card
+            v-container
+                v-card-title(primary-title)
+                    div
+                        h3(class="headline mb-0" Cadastro no Sistema) 
+                    
+                
+                v-form(
                 ref="form"
                 v-model="valid"
-                lazy-validation
-                >
-                    <v-text-field
+                lazy-validation)
+                
+                    v-text-field(
                     v-model="email"
                     :rules="emailRules"
                     label="E-mail"
-                    required
-                    ></v-text-field>
+                    required)
+                    
 
-                    <v-text-field
+                    v-text-field(
                     v-model="password"
                     :append-icon="show1 ? 'visibility' : 'visibility_off'"
                     :rules="[rules.required, rules.min]"
@@ -29,25 +29,19 @@
                     label="Senha"
                     hint="At least 8 characters"
                     counter
-                    @click:append="show1 = !show1"
-                    ></v-text-field>
+                    @click:append="show1 = !show1")
+                    
 
-                </v-form>
-                <v-card-actions>
-                    <v-btn
+                
+                v-card-actions
+                    v-btn(
                     :disabled="!valid"
                     color="pink darken-1"
                     @click="validate"
-                    flat
-                    >
-                    Cadastrar
-                    </v-btn>
-                    <v-btn flat color="orange" router to="./login">Voltar</v-btn>
-                </v-card-actions>
-            </v-container>
-        </v-card>
-    </v-flex>
-  </v-layout>
+                    flat) Cadastrar
+                    
+                    v-btn(flat color="orange" router to="./login") Voltar
+
 </template>
 
 <script>

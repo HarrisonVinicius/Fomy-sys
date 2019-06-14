@@ -1,62 +1,59 @@
-<template>
-    <div>
-        <v-toolbar fixed dark color="pink darken-1">
-            <!-- <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon> -->
+<template lang="pug">
+    div
+        v-toolbar(fixed dark color="pink darken-1")
+            //- !-- v-toolbar-side-icon @click="drawer = !drawer"/v-toolbar-side-icon --
 
-            <v-toolbar-title class="white--text">Fomy</v-toolbar-title>
+            v-toolbar-title(class="white--text") Fomy
 
-            <v-spacer></v-spacer>
-<!-- 
-            <v-btn icon>
-            <v-icon>search</v-icon>
-            </v-btn> -->
-<!-- 
-            <v-btn flat="">
-                <span> Login </span>
-            </v-btn> -->
+            //- v-spacer
 
-            <!-- <v-btn icon>
-            <v-icon>refresh</v-icon>
-            </v-btn> -->
+            //- v-btn icon
+            //- v-iconsearch
+            //- /v-btn --
 
-            <!-- <v-btn icon>
-            <v-icon>more_vert</v-icon>
-            </v-btn> -->
-        </v-toolbar>
-        <v-navigation-drawer
+            //- v-btn flat=""
+            //-     span Login /span
+            //- /v-btn --
+
+            //- !-- v-btn icon
+            //- v-iconrefresh
+            //- /v-btn --
+
+            //- !-- v-btn icon
+            //- v-iconmore_vert
+            //- /v-btn --
+        
+        v-navigation-drawer(
         v-model="drawer"
         absolute
-        temporary
-        >
-            <v-list class="pa-1">
-                <v-list-tile avatar>
-                <v-list-tile-content>
-                    <v-list-tile-title>MENU</v-list-tile-title>
-                </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-            <hr>
-            <v-list class="pt-0" dense>
-                <v-divider></v-divider>
+        temporary)
+        
+            v-list(class="pa-1")
+                v-list-tile(avatar)
+                v-list-tile-content
+                    v-list-tile-title MENU
+                
+                
+            
+            hr
+            v-list(class="pt-0" dense)
+                v-divider
 
-                <v-list-tile
+                v-list-tile(
                 v-for="item in items"
                 :key="item.title"
                 router 
-                :to="item.route"
+                :to="item.route")
 
-                >
-                <v-list-tile-action>
-                    <v-icon>{{ item.icon }}</v-icon>
-                </v-list-tile-action>
-
-                <v-list-tile-content>
-                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-navigation-drawer>
-    </div>
+                
+                    v-list-tile-action
+                        v-icon {{ item.icon }}
+                    v-list-tile-content
+                        v-list-tile-title {{ item.title }}
+                
+                
+            
+       
 </template>
 
 <script>

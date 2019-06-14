@@ -1,33 +1,33 @@
-<template>
-    <div class="background">
-        <v-container>
-            <v-layout style="padding-top: 15%; display: flex; justify-content: center;">
-                <v-flex xs12 sm4>
-                    <v-card>
-                            <!-- <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
-                            aspect-ratio="2.75"
-                            ></v-img> -->
+<template lang="pug">    
+    div(class="background")
+        v-container
+            v-layout(style="padding-top: 15%; display: flex; justify-content: center;")
+                v-flex(xs12 sm4)
+                    v-card
+                            //- !-- v-img
+                            //- src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+                            //- aspect-ratio="2.75"
+                            //- /v-img --
 
-                        <v-card-title primary-title>
-                            <div>
-                                <h3 class="headline mb-0">Entrar na conta</h3>
-                            </div>
-                        </v-card-title>
-                        <v-card-text>
-                            <v-form
+                    v-card-title(primary-title)
+                        div
+                            h3(class="headline mb-0") Entrar na conta
+                            
+                        
+                        v-card-text
+                            v-form(
                                 ref="form"
                                 v-model="valid"
-                                lazy-validation
-                            >
-                                <v-text-field
+                                lazy-validation)
+                            
+                                v-text-field(
                                 v-model="email"
                                 :rules="emailRules"
                                 label="E-mail"
-                                required
-                                ></v-text-field>
+                                required)
+                                
 
-                                <v-text-field
+                                v-text-field(
                                 v-model="password"
                                 :append-icon="show1 ? 'visibility' : 'visibility_off'"
                                 :rules="[rules.required, rules.min]"
@@ -36,27 +36,20 @@
                                 label="Senha"
                                 hint="At least 8 characters"
                                 counter
-                                @click:append="show1 = !show1"
-                                ></v-text-field>
-                                <small>Esqueci minha senha </small>
-                            </v-form>
-                        </v-card-text>
-                        <v-card-actions>
-                            <v-btn
+                                @click:append="show1 = !show1")
+                                
+                                small Esqueci minha senha 
+                            
+                        v-card-actions
+                            v-btn(
                             :disabled="!valid"
                             color="pink darken-1"
                             flat
-                            @click="validate"
-                            >
-                                Login
-                            </v-btn>
-                            <v-btn flat color="orange" router to="./register"> Cadastrar </v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </div>
+                            @click="validate") Login
+                            
+                            v-btn(flat color="orange" router to="./register") Cadastrar 
+                      
+    
 </template>
 
 <script>

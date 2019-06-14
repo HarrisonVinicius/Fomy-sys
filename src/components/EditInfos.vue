@@ -1,42 +1,38 @@
-<template>
-  <v-layout row justify-center>
-    <v-dialog v-model="dialogEditInfos" persistent max-width="600px">
-      <v-card>
-        <v-card-title>
-          <span class="headline"> EDITAR INFORMAÇÕES </span>
-        </v-card-title>
-        <v-card-text>
-          <v-container grid-list-md>
-              <form action="">
-                <v-text-field label="Slug" v-model="sellerSlug"></v-text-field>
-                <v-text-field label="Nome" v-model="sellerName"></v-text-field>
-                <v-text-field
+<template lang="pug">
+  v-layout(row justify-center)
+    v-dialog(v-model="dialogEditInfos" persistent max-width="600px")
+      v-card
+        v-card-title
+          span(class="headline") EDITAR INFORMAÇÕES 
+        
+        v-card-text
+          v-container(grid-list-md)
+              form(action="")
+                v-text-field(label="Slug" v-model="sellerSlug")
+                v-text-field(label="Nome" v-model="sellerName")
+                v-text-field(
                 v-model="sellerMail"
                 label="E-mail"
-                required
-                ></v-text-field>
-                <v-text-field
+                required)
+                
+                v-text-field(
                 v-model="sellerPhone"
                 label="Telefone (Whatsapp)"
-                required
-                ></v-text-field>
-                <v-textarea
+                required)
+                
+                v-textarea(
                 v-model="sellerAddress"
                 name="input-7-1"
                 label="Endereço"
-                value=""
-                ></v-textarea>
-              </form>
-          </v-container>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="closeEditInfos()">Voltar</v-btn>
-          <v-btn color="blue darken-1" flat @click="editInfo()">Salvar</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-layout>
+                value="")
+                
+    
+          
+        
+        v-card-actions
+          v-spacer
+          v-btn(color="blue darken-1" flat @click="closeEditInfos()") Voltar
+          v-btn(color="blue darken-1" flat @click="editInfo()") Salvar
 </template>
 
 <script>
