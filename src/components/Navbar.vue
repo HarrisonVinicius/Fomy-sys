@@ -33,8 +33,6 @@
                 v-list-tile-content
                     v-list-tile-title MENU
                 
-                
-            
             hr
             v-list(class="pt-0" dense)
                 v-divider
@@ -45,15 +43,11 @@
                 router 
                 :to="item.route")
 
-                
                     v-list-tile-action
                         v-icon {{ item.icon }}
                     v-list-tile-content
                         v-list-tile-title {{ item.title }}
                 
-                
-            
-       
 </template>
 
 <script>

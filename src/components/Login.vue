@@ -26,7 +26,6 @@
                                 label="E-mail"
                                 required)
                                 
-
                                 v-text-field(
                                 v-model="password"
                                 :append-icon="show1 ? 'visibility' : 'visibility_off'"
@@ -38,8 +37,7 @@
                                 counter
                                 @click:append="show1 = !show1")
                                 
-                                small Esqueci minha senha 
-                            
+                                <router-link to="/" color="pink darken-1"> Esqueci minha senha </router-link>
                         v-card-actions
                             v-btn(
                             :disabled="!valid"

@@ -24,8 +24,6 @@
             v-model="quatro_sabores"
             label="4 SABORES")
             
-          
-        
         v-card-actions
           v-spacer
           v-btn(color="blue darken-1" flat @click="closeCreateSize()") Voltar

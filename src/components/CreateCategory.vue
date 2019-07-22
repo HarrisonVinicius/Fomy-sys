@@ -27,7 +27,6 @@
           v-spacer
           v-btn(color="blue darken-1" flat @click="closeCreateCategory()") Voltar
           v-btn(color="blue darken-1" flat @click="createCategory()") Criar
-        
   
 </template>
 

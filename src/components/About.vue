@@ -3,7 +3,8 @@
         SideMenu 
         v-container
             v-layout(row wrap)
-                v-flex(xs12 style="margin-left: 20%;")
+                v-flex(xs2)
+                v-flex(xs10)
                     br
                     br
                     br
@@ -14,10 +15,6 @@
                     v-divider
                     v-form
                         v-container
-                            v-btn(flat @click="toggleEditInfos()")
-                                v-icon edit
-                                span Editar Informações 
-                            
                             br
                             v-layout(style="display:flex; justify-content: space-between;")
                                 v-flex(
@@ -25,38 +22,45 @@
                                 md6)
                                 
                                     h2 Nome do Estabelecimento 
+                                    br
                                     v-layout(row wrap style="display: flex; align-items:center;")
-                                        h3(style="color: grey;") {{ this.info.info.name }} 
+                                        h3(style="color: grey;") {{ this.info.info.name }}
                                     
+                                    br
                                     br
                                     h2 Slug do Estabelecimento 
+                                    br
                                     v-layout(row wrap style="display: flex; align-items:center;")
                                         h3(style="color: grey;") {{ this.info.info.slug }} 
-                                    
+                                    br
                                     br
                                     h2 Email 
+                                    br
                                     v-layout(row wrap style="display: flex; align-items:center;")
                                         h3(style="color: grey;") {{ this.info.info.email }} 
-                                    
+                                    br
                                     br
                                     h2 Telefone (Whatsapp) 
+                                    br
                                     v-layout(row wrap style="display: flex; align-items:center;")
                                         h3(style="color: grey;") {{ this.info.info.whatsapp }} 
                                     
                                     br
+                                    br
                                     h2 Endereço 
+                                    br
                                     v-layout(row wrap style="display: flex; align-items:center;")
                                         h3(style="color: grey;") {{ this.info.info.address }} 
-                                    
                                     br
-                                    h2 logo 
-                                    v-layout(row wrap style="display: flex; align-items:center;")
-                                       v-btn(flat)
-                                           span escolher foto 
-                                       
-                                    
-                                 
-                            
+                                   
+                                    //- h2 logo 
+                                    //- br
+                                    //- v-layout(row wrap style="display: flex; align-items:center;")
+                                    //-    v-btn(flat)
+                                    //-        span escolher foto 
+                            v-btn(large block @click="toggleEditInfos()")
+                                v-icon edit
+                                span Editar Informações 
                             br
                             v-divider
                             br
@@ -93,7 +97,21 @@
                                                         type="time"
                                                         class="mr-5")
                                                         
-                                                    
+                                                    v-flex
+                                                        v-text-field(
+                                                        label="FECHA"
+                                                        value="12:30:00"
+                                                        type="time")
+                                                        
+                                            td(class="text-xs-right td_border")
+                                                v-layout
+                                                    v-flex
+                                                        v-text-field(
+                                                        label="ABRE"
+                                                        value="12:30:00"
+                                                        type="time"
+                                                        class="mr-5")
+                                                        
 
                                                     v-flex
                                                         v-text-field(
@@ -101,10 +119,7 @@
                                                         value="12:30:00"
                                                         type="time")
                                                         
-                                                    
-                                                
-                                                
-                                            
+
                                             td(class="text-xs-right td_border")
                                                 v-layout
                                                     v-flex
@@ -121,10 +136,7 @@
                                                         label="FECHA"
                                                         value="12:30:00"
                                                         type="time")
-                                                        
-                                                    
-                                                
-                                            
+
                                             td(class="text-xs-right td_border")
                                                 v-layout
                                                     v-flex
@@ -134,34 +146,11 @@
                                                         type="time"
                                                         class="mr-5")
                                                         
-                                                    
-
                                                     v-flex
                                                         v-text-field(
                                                         label="FECHA"
                                                         value="12:30:00"
-                                                        type="time")
-                                                        
-                                                    
-                                                
-                                            
-                                            td(class="text-xs-right td_border")
-                                                v-layout
-                                                    v-flex
-                                                        v-text-field(
-                                                        label="ABRE"
-                                                        value="12:30:00"
-                                                        type="time"
-                                                        class="mr-5")
-                                                        
-                                                    
-
-                                                    v-flex
-                                                        v-text-field(
-                                                        label="FECHA"
-                                                        value="12:30:00"
-                                                        type="time")
-                                                        
+                                                        type="time")                                       
                
             EditInfos(ref="teste") 
        

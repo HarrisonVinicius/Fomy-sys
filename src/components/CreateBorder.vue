@@ -16,18 +16,14 @@
                     label="PREÇO"
                     value="10.00"
                     prefix="R$")
-                    
-                
-            
+
             br
         
         v-card-actions
           v-spacer
           v-btn(color="blue darken-1" flat @click="closeCreateBorder()") Voltar
           v-btn(color="blue darken-1" flat @click="createBorder()") Criar
-        
 
-  
 </template>
 
 <script>

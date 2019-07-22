@@ -3,7 +3,8 @@
         SideMenu 
         v-container
             v-layout(row wrap)
-                v-flex(xs12 style="margin-left: 20%;")
+                v-flex(xs2)
+                v-flex(xs10)
                     br
                     br
                     br
@@ -41,12 +42,7 @@
                                             td
                                                 v-switch(
                                                 v-model="switch1"
-                                                label="`NÃO ENTREGA")
-                                                
-                                            
-                                       
-                                
-                              
+                                                label="`NÃO ENTREGA")                      
           
 </template>
 

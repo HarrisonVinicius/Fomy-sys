@@ -3,7 +3,7 @@
       v-model="drawer"
       permanent
       fixed
-      style="margin-top: 65px;")
+      style="margin-top: 65px; width: 18%;")
     
       v-toolbar(flat class="transparent")
         v-list(class="pa-0")
@@ -17,12 +17,14 @@
 
       v-list(class="pt-0" dense)
         v-divider
-
+        br
         v-list-tile(
           v-for="item in items"
           :key="item.title"
           router
-          :to="item.route")
+          :to="item.route"
+          style="margin-bottom: 15px;"
+          )
         
         
           v-list-tile-action
@@ -30,8 +32,9 @@
           
 
           v-list-tile-content
-            v-list-tile-title {{ item.title }}
-         
+            v-list-tile-title 
+              span.title {{ item.title }}
+        
 </template>
 
 <script>

@@ -12,7 +12,6 @@
 
                 v-stepper-step(step="3") Complementos
             
-
             v-stepper-items
                 v-stepper-content(step="1")
                     v-card
@@ -29,7 +28,6 @@
                                             label="Nome do item"
                                             required)
                                         
-                                        
 
                                         v-flex(
                                         xs12
@@ -40,7 +38,6 @@
                                             label="Categoria"
                                             required)
                                             
-                                        
 
                                         v-flex(
                                         xs12
@@ -49,9 +46,7 @@
                                             v-text-field(
                                                 v-model="price"
                                                 label="Preço"
-                                                required)
-                                                                                    
-                                        
+                                                required)           
                                  
                         v-layout(row wrap)
                             v-container
@@ -61,15 +56,11 @@
                                 value=""
                                 hint="Deixe uma observação")
                                  
-                       
                       
                         v-layout(row wrap)
                             v-container
                                 v-btn Escolha uma foto 
                            
-                      
-                  
-
                     v-btn(
                     color="primary"
                     @click="e1 = 2") Continue
@@ -112,11 +103,7 @@
                                 v-checkbox(
                                 v-model="sabado"
                                 label="Sab")
-                                
-                            
-                       
-                   
-
+                    
                     v-btn(
                     color="primary"
                     @click="e1 = 3") Continue

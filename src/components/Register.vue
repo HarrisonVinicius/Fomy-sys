@@ -7,19 +7,34 @@
                     div
                         h3(class="headline mb-0" Cadastro no Sistema) 
                     
-                
                 v-form(
                 ref="form"
                 v-model="valid"
                 lazy-validation)
                 
                     v-text-field(
+                    v-model="name"
+                    label="Nome do Estabelecimento"
+                    required)
+                    
+                    v-text-field(
                     v-model="email"
                     :rules="emailRules"
                     label="E-mail"
                     required)
-                    
 
+                    v-text-field(
+                    v-model="phone"
+                    :rules="phoneRules"
+                    prefix="55"
+                    label="Telefone(Whatsapp) do Estabelecimento"
+                    required)
+
+                    v-text-field(
+                    v-model="address"
+                    label="Endereço do Estabelecimento"
+                    required)
+                    
                     v-text-field(
                     v-model="password"
                     :append-icon="show1 ? 'visibility' : 'visibility_off'"
@@ -30,8 +45,6 @@
                     hint="At least 8 characters"
                     counter
                     @click:append="show1 = !show1")
-                    
-
                 
                 v-card-actions
                     v-btn(

@@ -6,7 +6,8 @@
             br
             br
             v-layout(row wrap)
-                v-flex(xs12 style="margin-left: 20%;")
+                v-flex(xs2)
+                v-flex(xs10)
                     h1 Cardápio 
                     br
                     h2(style="color: grey;") Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa corporis, perferendis dicta voluptates odit necessitatibus quas aliquam aperiam voluptas eveniet facilis! Perferendis hic dicta vel numquam voluptatibus unde neque!
@@ -45,19 +46,14 @@
                                         v-btn(flat color="pink darken-1")
                                             span Editar 
                                         
-                                                                     
-                                     
-                            
+ 
                             v-card-actions
                                 v-btn(flat color="pink darken-1x" @click="toggleCreateItem()")
                                     v-icon add 
                                     Adicionar Item
-                                
-                            
-                                           
+                                                 
                         br
                         br
-                    
                     
                     
                     div(v-for="PizzaCategory in PizzaCategories" :key="PizzaCategory.text")
@@ -72,7 +68,6 @@
                                 v-btn(flat color="pink darken-1")
                                     span Editar 
                                 
-                            
                             v-card-text
                                 v-card
                                     
@@ -92,20 +87,12 @@
                                                 
                                                 v-btn(flat color="pink darken-1")
                                                     span Editar 
-                                                
-                                                                             
                                             
-                                    
-               
-                                    
                                     v-card-actions
                                         v-btn(flat color="pink darken-1x" @click="toggleCreateSize()")
                                             v-icon add 
                                             Adicionar Item
                                         
-                                    
-                                    
-                                    
                                     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
                                         h2 Bordas e Massas 
                                     
@@ -123,17 +110,10 @@
                                                 v-btn(flat color="pink darken-1")
                                                     span Editar 
                                                 
-                                                                             
-                                            
-                                    
-                                    
                                     v-card-actions
                                         v-btn(flat color="pink darken-1x" @click="toggleCreateBorder()")
                                             v-icon add 
                                             Adicionar Item
-                                        
-                                    
-                                
                                 
                                     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
                                         h2 Sabores 
@@ -151,37 +131,22 @@
                                                 v-btn(flat color="pink darken-1")
                                                     span Editar 
                                                 
-                                                                             
-                                            
-                                    
-               
-                                    
                                     v-card-actions
                                         v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
                                             v-icon add 
                                             Adicionar Item
-                                        
-                                    
                                                    
                                 br
                                 br
-                                
-                            
-                                           
+                                   
                         br
                         br
                                         
-                
-            
-            
             CreateCategory( ref="teste" )
             CreateItem(ref="teste2" )
             CreateSize(ref="teste3" )
             CreateBorder(ref="teste4" )
             CreateFlavor(ref="teste5" )
-        
-       
-
     
 </template>
 

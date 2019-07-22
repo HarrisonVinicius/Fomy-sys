@@ -5,6 +5,7 @@ import Login from './components/Login.vue'
 import Delivery from './components/Delivery.vue'
 import Menu from './components/Menu.vue'
 import Register from './components/Register.vue'
+import Home from './components/Home.vue'
 
 
 Vue.use(Router)
@@ -13,7 +14,7 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {path:'/', component: Menu},
+    {path:'/', component: Home},
     {path:'/about', component: About},
     {path:'/login', component: Login},
     {path:'/register', component: Register},

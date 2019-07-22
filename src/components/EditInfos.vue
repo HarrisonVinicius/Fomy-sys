@@ -26,9 +26,6 @@
                 label="Endereço"
                 value="")
                 
-    
-          
-        
         v-card-actions
           v-spacer
           v-btn(color="blue darken-1" flat @click="closeEditInfos()") Voltar
