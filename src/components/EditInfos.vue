@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions , mapState } from 'vuex'
 
 export default {
     data () {
@@ -73,7 +73,18 @@ export default {
         },
         
         ...mapActions(['setSellerSlug', 'setSellerName', 'setSellerEmail', 'setSellerWhatsapp', 'setSellerLogo', 'setSellerBanner', 'setSellerAddress'])
-    }
+    },
 
+    computed: {
+      ...mapState(["seller"])
+    },
+
+    mounted() {
+      this.sellerSlug = this.seller.info.slug
+      this.sellerName = this.seller.info.name
+      this.sellerMail = this.seller.info.email
+      this.sellerPhone = this.seller.info.whatsapp
+      this.sellerAddress = this.seller.info.address
+    }
 }
 </script>

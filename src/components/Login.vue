@@ -84,49 +84,58 @@
 
             loginUser() {
                 console.log("passou por aqui")
-                this.postUserData()
+                let user = {
+                    email: this.email,
+                    password: this.password,
+                    login_type: 'client'
+                }
+                localStorage.setItem('user', JSON.stringify(user))
+                this.setAuth(true)
+                this.$router.push('/')
+                // this.postUserData()
             },
 
             /*
             *
             */            
             
-            async postUserData () {
-                await axios.post(`${api.apiUrl}/login`, {
-                    email: this.email,
-                    password: this.password,
-                    login_type: 'client'
-                })
-                .then(response => {
-                    if( response.status === 200 ) {
-                        let user = response.data
-                        localStorage.setItem('user', JSON.stringify(user))
-                        // this.userData(user)
-                        // this.setAuth(true)
-                        this.$router.push('/')
-                    } else {
-                    
-                        if(response.data.usermail){
-                        this.error_email = response.data.usermail
-                        }
+            ...mapActions(['setAuth'])   
 
-                        if(response.data.userpass){
-                        this.error_pass = response.data.userpass
-                        }
-                    }
-                })
-                .catch(error => {
-                    console.log(error)
-                    this.error_mail = true
-                    this.error_pass = true
-                })
-            },
+            // async postUserData () {
+            //     await axios.post(`${api.apiUrl}/login`, {
+            //         email: this.email,
+            //         password: this.password,
+            //         login_type: 'client'
+            //     })
+            //     .then(response => {
+            //         if( response.status === 200 ) {
+            //             let user = response.data
+            //             localStorage.setItem('user', JSON.stringify(user))
+            //             // this.userData(user)
+            //             // this.setAuth(true)
+            //             this.$router.push('/')
+            //         } else {
+                    
+            //             if(response.data.usermail){
+            //             this.error_email = response.data.usermail
+            //             }
+
+            //             if(response.data.userpass){
+            //             this.error_pass = response.data.userpass
+            //             }
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //         this.error_mail = true
+            //         this.error_pass = true
+            //     })
+            // },
 
             /*
             *
             */              
-        
-            // ...mapActions([''])    
+         
         }
     }
 </script>

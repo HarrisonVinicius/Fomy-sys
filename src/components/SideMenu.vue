@@ -12,7 +12,8 @@
               img(src="https://randomuser.me/api/portraits/men/85.jpg")
     
             v-list-tile-content
-              v-list-tile-title Poti
+              v-list-tile-title
+                span.title {{this.seller.info.name}}
             
 
       v-list(class="pt-0" dense)
@@ -25,19 +26,25 @@
           :to="item.route"
           style="margin-bottom: 15px;"
           )
-        
-        
           v-list-tile-action
             v-icon {{ item.icon }}
-          
-
           v-list-tile-content
             v-list-tile-title 
               span.title {{ item.title }}
+        v-list-tile(
+          @click="logout()"
+          style="margin-bottom: 15px;"
+          )
+          v-list-tile-action
+            v-icon exit_to_app
+          v-list-tile-content
+            v-list-tile-title 
+              span.title Sair da Conta
         
 </template>
 
 <script>
+  import { mapActions , mapState } from 'vuex'
   export default {
     data () {
       return {
@@ -46,11 +53,23 @@
           { title: 'Home', icon: 'dashboard', route:'/' },
           { title: 'Cárdapio', icon: 'menu', route:'/menu' },
           { title: 'Informações do Estabelecimento', icon: 'info', route:'/about' },
-          { title: 'Editar entregas', icon: 'map', route:'/delivery' }, 
-          { title: 'Sair da Conta', icon: 'exit_to_app', route:'/login' }, 
+          { title: 'Editar entregas', icon: 'map', route:'/delivery' },  
         ],
         right: null
       }
+    },
+
+    methods: {
+      logout() {
+        this.setAuth(false)
+        this.$router.push('/login')
+      },
+
+      ...mapActions(['setAuth']) 
+    },
+
+    computed: {
+      ...mapState(['seller'])
     }
   }
 </script>

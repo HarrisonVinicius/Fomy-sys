@@ -25,7 +25,6 @@
 
                     v-text-field(
                     v-model="phone"
-                    :rules="phoneRules"
                     prefix="55"
                     label="Telefone(Whatsapp) do Estabelecimento"
                     required)
@@ -65,6 +64,9 @@
     export default {
         data() {
             return {
+                name: '',
+                phone: '',
+                address: '',
                 email: '',
                 emailRules: [
                 v => !!v || 'Insira o Email',
@@ -83,45 +85,61 @@
         methods: {
             validate () {
                 if (this.$refs.form.validate()) {
+                    let seller = {
+                        name: this.name,
+                        email: this.email,
+                        telefone: this.phone,
+                        endereço: this.address,
+                        senha: this.password
+                    }
+                    this.setSellerName(seller.name)
+                    this.setSellerEmail(seller.email)
+                    this.setSellerWhatsapp(seller.telefone)
+                    this.setSellerAddress(seller.endereço)
+                    this.setSellerPassword(seller.senha)
                     this.snackbar = true
-                    this.postUserData()
+                    localStorage.setItem('user', JSON.stringify(seller))
+                    this.setAuth(true)
+                    this.$router.push('/')
+                    // this.postUserData()
                 }
             },
+
+            ...mapActions(['setSellerName' , 'setSellerEmail' , 'setSellerWhatsapp' , 'setSellerAddress' , 'setSellerPassword' , 'setAuth'])
             
             /*
             *
             */
 
-            async postUserData () {
-                await axios.post(`${api.apiUrl}/conta`, {
-                    email: this.email,
-                    password: this.password,
-                    register_type: 'client'
-                })
-                .then(response => {
-                    console.log(response)
-                    if( response.status === 200 ) {
-                        // let id = response.data.object
-                        // this.setUserId(id)
-                        this.$router.push('/')
-                        console.log(response.data)    
-                    }
-                })
-                .catch(error => {
-                    console.log("deu merda")
-                    console.log(error)
-                    // this.error_name = true
-                    // this.error_email = true
-                    // this.error_phone = true
-                    // this.error_pass = true
-                })
-            },
+            // async postUserData () {
+            //     await axios.post(`${api.apiUrl}/conta`, {
+            //         email: this.email,
+            //         password: this.password,
+            //         register_type: 'client'
+            //     })
+            //     .then(response => {
+            //         console.log(response)
+            //         if( response.status === 200 ) {
+            //             // let id = response.data.object
+            //             // this.setUserId(id)
+            //             this.$router.push('/')
+            //             console.log(response.data)    
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.log("deu merda")
+            //         console.log(error)
+            //         // this.error_name = true
+            //         // this.error_email = true
+            //         // this.error_phone = true
+            //         // this.error_pass = true
+            //     })
+            // },
             
             /*
             *
             */
 
-            ...mapActions([''])
         }
     }
 </script>
