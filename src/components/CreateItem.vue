@@ -51,15 +51,21 @@
                         v-layout(row wrap)
                             v-container
                                 v-textarea(
+                                v-model="details"
                                 name="input-7-1"
                                 label="Descrição"
                                 value=""
                                 hint="Deixe uma observação")
-                                 
+
+                        v-btn(
+                            color="primary"
+                            @click="createItem2()"
+                        ) SALVAR           
                       
-                        v-layout(row wrap)
-                            v-container
-                                v-btn Escolha uma foto 
+                        
+                        //- v-layout(row wrap)
+                        //-     v-container
+                        //-         v-btn Escolha uma foto 
                            
                     v-btn(
                     color="primary"
@@ -157,6 +163,8 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     data () {
       return {
@@ -167,6 +175,7 @@
         CategoriesSelect: '',
         price:'',
         name: '',
+        details: '',
         domingo: '',
         segunda: '',
         terca: '',
@@ -185,9 +194,22 @@
     },
 
     methods: {
+        createItem2() {
+            let newItem = {
+                name: this.name,
+                price: this.price,
+                details: this.details,
+            }
+            this.createItemCategory(newItem)
+            this.dialogCreateItem = false
+            console.log(newItem)
+        },
+        
         closeCreateItem() {
             this.dialogCreateItem = false
-        }
+        },
+
+        ...mapActions(['createItemCategory'])
     }
   }
 </script>

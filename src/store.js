@@ -25,8 +25,18 @@ export default new Vuex.Store({
     menu: {
       categories: [],
       categoriesPizza: []
-    }
+    },
 
+    toggle: {
+      loading: false,
+      sending: false,
+      request: false,
+    },
+
+    feedback: {
+      dialog: { show: false, text: null },
+      snackbar: { show: false, text: null },
+    },
   },
   
   mutations: {
@@ -48,6 +58,12 @@ export default new Vuex.Store({
     CREATE_CATEGORY: (state, payload) => { state.menu.categories.push(payload) },
     CREATE_PIZZA_CATEGORY: (state, payload) => { state.categoriesPizza.push(payload) },
 
+    // FEEDBACK MUTATIONS
+    SET_LOADING: (state, value) => { state.toggle.loading = value },
+    SET_SENDING: (state, value) => { state.toggle.sending = value },
+    SET_REQUEST: (state, value) => { state.toggle.request = value },
+    SET_DIALOG: (state, payload) => { state.feedback.dialog = payload ; console.log(payload)},
+    SET_SNACKBAR: (state, payload) => { state.feedback.snackbar = payload },
     
   },
   actions: {

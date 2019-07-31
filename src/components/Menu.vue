@@ -23,7 +23,7 @@
                     div(v-for="category in menu.categories")
                         v-card
                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; background-color: #e8e7e7; display: flex; align-items: center;")
-                                h2 {{category.name}} 
+                                h2 {{category.name}}
                                 v-spacer
                                 v-btn(flat color="pink darken-1")
                                     v-icon pause
@@ -50,7 +50,7 @@
                             v-card-actions
                                 v-btn(flat color="pink darken-1x" @click="toggleCreateItem()")
                                     v-icon add 
-                                    Adicionar Item
+                                    | Adicionar Item
                                                  
                         br
                         br
@@ -91,7 +91,7 @@
                                     v-card-actions
                                         v-btn(flat color="pink darken-1x" @click="toggleCreateSize()")
                                             v-icon add 
-                                            Adicionar Item
+                                            | Adicionar Item
                                         
                                     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
                                         h2 Bordas e Massas 
@@ -113,7 +113,7 @@
                                     v-card-actions
                                         v-btn(flat color="pink darken-1x" @click="toggleCreateBorder()")
                                             v-icon add 
-                                            Adicionar Item
+                                            | Adicionar Item
                                 
                                     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
                                         h2 Sabores 
@@ -134,7 +134,7 @@
                                     v-card-actions
                                         v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
                                             v-icon add 
-                                            Adicionar Item
+                                            | Adicionar Item
                                                    
                                 br
                                 br
@@ -147,7 +147,7 @@
             CreateSize(ref="teste3" )
             CreateBorder(ref="teste4" )
             CreateFlavor(ref="teste5" )
-    
+            FeedbackDialog
 </template>
 
 <script>
@@ -157,6 +157,7 @@ import CreateItem from '@/components/CreateItem'
 import CreateSize from '@/components/CreateSize'
 import CreateBorder from '@/components/CreateBorder'
 import CreateFlavor from '@/components/CreateFlavor'
+import FeedbackDialog from '@/components/FeedbackDialog'
 import { mapActions , mapState } from 'vuex'
 
 export default {
@@ -168,7 +169,8 @@ export default {
     CreateItem,
     CreateSize,
     CreateBorder,
-    CreateFlavor
+    CreateFlavor,
+    FeedbackDialog
   },
   
   data () {

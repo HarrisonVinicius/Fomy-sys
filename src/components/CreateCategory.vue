@@ -26,12 +26,12 @@
         v-card-actions
           v-spacer
           v-btn(color="blue darken-1" flat @click="closeCreateCategory()") Voltar
-          v-btn(color="blue darken-1" flat @click="createCategory()") Criar
+          v-btn(color="blue darken-1" flat @click="createCategory2()") Criar
   
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions , mapState } from 'vuex'
 import axios from 'axios'
 
 export default {
@@ -46,19 +46,23 @@ export default {
     },
 
     methods: {
-        createCategory() {
+        createCategory2() {
             if(this.Padrao){
               let newCategory = {
                 name: this.CategoryName,
                 categoryType: 'Padrao'
               }
+              console.log(newCategory)
               this.createCategory(newCategory)
               this.dialogCreateCategory = false
+              this.$store.commit('SET_SNACKBAR' , {show: true, text: "Categoria Adicionada ao Menu"})
             }else {
               let newCategory = {
                 name: this.CategoryName,
                 categoryType: 'Pizza'
               }
+              this.dialogCreateCategory = false
+              this.$store.commit('SET_SNACKBAR' , {show: true, text: "Categoria Adicionada ao Menu"})
             }
             // this.$http.post('...', newCategory)
             //   .then(function(response){
@@ -72,6 +76,10 @@ export default {
         },
 
         ...mapActions(['createCategory'])
+    },
+
+    computed: {
+      ...mapState(['toggles'])
     }
 }
 </script>
