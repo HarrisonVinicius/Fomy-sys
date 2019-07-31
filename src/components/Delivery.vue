@@ -40,9 +40,10 @@
                                                 v-text-field(label="TEMPO" required)
                                             
                                             td
-                                                v-switch(
-                                                v-model="switch1"
-                                                label="`NÃO ENTREGA")                      
+                                                v-checkbox(label="NÃO ENTREGA" :value="props.item.id" v-model="selected" color="error")
+                                                //- v-switch(
+                                                //- v-model="switch1"
+                                                //- label="`NÃO ENTREGA")                      
           
 </template>
 
@@ -53,51 +54,39 @@ export default {
     name: 'about',
     data () {
         return {     
-            switch1: true,
+            selected: [],
             SelectValue: '',
             times: [
                 {
                     name: 'Bairro 1',
+                    id: 1
                 },
                 {
                     name: 'Bairro 2',
+                    id: 2
                 },
                 {
                     name: 'Bairro 3',
+                    id: 3
                 },
                 {
                     name: 'Bairro 4',
+                    id: 4
                 },
                 {
                     name: 'Bairro 5',
+                    id: 5
                 },
                 {
                     name: 'Bairro 6',
+                    id: 6
                 },
                 {
                     name: 'Bairro 7',
+                    id: 7
                 },
             ],
-            
-            turnos: [
-                {
-                    text: '1 turno',
-                    value: 1
-                },
-                {
-                    text: '2 turnos',
-                    value: 2
-                },
-                {
-                    text: '3 turnos',
-                    value: 3
-                },
-                {
-                    text: '4 turnos',
-                    value: 4
-                },
-            ]
-            }
+        }
     },
 
     components: {

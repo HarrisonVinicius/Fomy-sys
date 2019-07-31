@@ -20,10 +20,10 @@
                     
                     br
                     br
-                    div(v-for="StandartCategory in StandartCategories" :key="StandartCategory.text")
+                    div(v-for="category in menu.categories")
                         v-card
                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; background-color: #e8e7e7; display: flex; align-items: center;")
-                                h2 Standart Category Title 
+                                h2 {{category.name}} 
                                 v-spacer
                                 v-btn(flat color="pink darken-1")
                                     v-icon pause
@@ -33,18 +33,18 @@
                                     span Editar 
                                 
                             
-                            v-card-text
-                                 div(v-for="CategoryItems in CategoriesItems" :key="CategoryItems.text")
-                                    v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                        h2 {{ CategoryItems.name }} 
-                                        v-spacer
-                                        h2 R$ {{ CategoryItems.price }} 
-                                        v-btn(flat color="pink darken-1")
-                                            v-icon pause
-                                            span Pausar Vendas 
+                            //- v-card-text
+                            //-      div(v-for="CategoryItems in CategoriesItems" :key="CategoryItems.text")
+                            //-         v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                            //-             h2 {{ CategoryItems.name }} 
+                            //-             v-spacer
+                            //-             h2 R$ {{ CategoryItems.price }} 
+                            //-             v-btn(flat color="pink darken-1")
+                            //-                 v-icon pause
+                            //-                 span Pausar Vendas 
                                         
-                                        v-btn(flat color="pink darken-1")
-                                            span Editar 
+                            //-             v-btn(flat color="pink darken-1")
+                            //-                 span Editar 
                                         
  
                             v-card-actions
@@ -157,9 +157,10 @@ import CreateItem from '@/components/CreateItem'
 import CreateSize from '@/components/CreateSize'
 import CreateBorder from '@/components/CreateBorder'
 import CreateFlavor from '@/components/CreateFlavor'
+import { mapActions , mapState } from 'vuex'
 
 export default {
-  name: 'App',
+  name: 'menu-view',
 
   components: {
     SideMenu,
@@ -173,25 +174,25 @@ export default {
   data () {
     return {
         dialog: false,
-        StandartCategories: [
-        {
-            name: 'Promoções'
-        }
-        ],
-        CategoriesItems: [
-        {
-            name: 'x-tudo',
-            price: '15,00'
-        },
-                {
-            name: 'x-Egg',
-            price: '19,00'
-        },
-                {
-            name: 'x-Picanha',
-            price: '20,00'
-        },
-        ],
+        // StandartCategories: [
+        // {
+        //     name: 'Promoções'
+        // }
+        // ],
+        // CategoriesItems: [
+        // {
+        //     name: 'x-tudo',
+        //     price: '15,00'
+        // },
+        //         {
+        //     name: 'x-Egg',
+        //     price: '19,00'
+        // },
+        //         {
+        //     name: 'x-Picanha',
+        //     price: '20,00'
+        // },
+        // ],
 
         PizzaCategories: [
             'categoria 1',
@@ -273,6 +274,10 @@ export default {
             this.$refs.teste5.dialogCreateFlavor = !this.$refs.teste5.dialogCreateFlavor
         }  
   },
+
+  computed: {
+      ...mapState(['menu'])
+  }
 
 //   created: function() {
 //       this.fetchCategories();

@@ -19,10 +19,14 @@ export default new Vuex.Store({
     },
     
     seller: {
-      info: {},
-      menu: []
+      info: {}
     },
-  
+    
+    menu: {
+      categories: [],
+      categoriesPizza: []
+    }
+
   },
   
   mutations: {
@@ -41,7 +45,10 @@ export default new Vuex.Store({
     SET_SELLER_ADDRESS: (state, address) => { state.seller.info.address = address },
     
     // MENU MUTATIONS
-    SET_SELLER_MENU (state, menu) { state.business.menu = menu }, 
+    CREATE_CATEGORY: (state, payload) => { state.menu.categories.push(payload) },
+    CREATE_PIZZA_CATEGORY: (state, payload) => { state.categoriesPizza.push(payload) },
+
+    
   },
   actions: {
 
@@ -49,10 +56,14 @@ export default new Vuex.Store({
     setAuth({commit}, status) { commit('AUTH_AUTHENTICATE', status) },
     
     // MENU ACTIONS
-    async getMenu(stallTime = 3000) {
-      await new Promise(resolve => setTimeout(resolve, stallTime));
-      return json
-    },
+    createCategory: ({ commit }, payload) => { commit("CREATE_CATEGORY", payload) },
+    createPizzaCategory: ({ commit }, payload) => { commit("CREATE_PIZZA_CATEGORY", payload) },
+
+    
+    // async getMenu(stallTime = 3000) {
+    //   await new Promise(resolve => setTimeout(resolve, stallTime));
+    //   return json
+    // },
     
     // INFOS ACTIONS
     setSellerSlug ({commit}, slug) {commit('SET_SELLER_SLUG', slug)},
@@ -64,10 +75,10 @@ export default new Vuex.Store({
     setSellerBanner ({commit}, banner) { commit('SET_SELLER_BANNER', banner) },
     setSellerAddress ({commit}, address) { commit('SET_SELLER_ADDRESS', address) },
 
-    async getInfos(stallTime = 3000) {
-      await new Promise(resolve => setTimeout(resolve, stallTime));
-      return json2
-    }
+    // async getInfos(stallTime = 3000) {
+    //   await new Promise(resolve => setTimeout(resolve, stallTime));
+    //   return json2
+    // }
 
   }
 })

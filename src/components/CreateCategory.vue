@@ -52,6 +52,8 @@ export default {
                 name: this.CategoryName,
                 categoryType: 'Padrao'
               }
+              this.createCategory(newCategory)
+              this.dialogCreateCategory = false
             }else {
               let newCategory = {
                 name: this.CategoryName,
@@ -69,7 +71,7 @@ export default {
             this.dialogCreateCategory = false
         },
 
-        ...mapActions(['userData', 'setUserId'])
+        ...mapActions(['createCategory'])
     }
 }
 </script>

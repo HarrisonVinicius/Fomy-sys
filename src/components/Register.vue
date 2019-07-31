@@ -14,6 +14,7 @@
                 
                     v-text-field(
                     v-model="name"
+                    :rules="nameRules"
                     label="Nome do Estabelecimento"
                     required)
                     
@@ -25,12 +26,14 @@
 
                     v-text-field(
                     v-model="phone"
+                    :rules="phoneRules"
                     prefix="55"
                     label="Telefone(Whatsapp) do Estabelecimento"
                     required)
 
                     v-text-field(
                     v-model="address"
+                    :rules="addressRules"
                     label="Endereço do Estabelecimento"
                     required)
                     
@@ -65,8 +68,18 @@
         data() {
             return {
                 name: '',
+                nameRules: [
+                v => !!v || 'Insira o Nome',
+                ],
                 phone: '',
+                phoneRules: [
+                v => !!v || 'Insira o Numero',
+                v => v.length == 11 || 'Numero Inválido',
+                ],
                 address: '',
+                addressRules: [
+                v => !!v || 'Insira o Endereço',
+                ],
                 email: '',
                 emailRules: [
                 v => !!v || 'Insira o Email',

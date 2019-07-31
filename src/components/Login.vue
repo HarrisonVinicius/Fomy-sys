@@ -1,5 +1,5 @@
 <template lang="pug">    
-    div(class="background")
+    div
         v-container
             v-layout(style="padding-top: 15%; display: flex; justify-content: center;")
                 v-flex(xs12 sm4)
@@ -140,9 +140,3 @@
     }
 </script>
 
-<style>
-    .background{
-        background-image: url(../assets/images.jpeg);
-        background-size: cover;
-    }
-</style>
