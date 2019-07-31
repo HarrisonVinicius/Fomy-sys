@@ -20,7 +20,7 @@
                     
                     br
                     br
-                    div(v-for="category in menu.categories")
+                    div(v-for="category in vendor.catalog")
                         v-card
                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; background-color: #e8e7e7; display: flex; align-items: center;")
                                 h2 {{category.name}}
@@ -147,7 +147,7 @@
             CreateSize(ref="teste3" )
             CreateBorder(ref="teste4" )
             CreateFlavor(ref="teste5" )
-            FeedbackDialog
+            //- FeedbackDialog
 </template>
 
 <script>
@@ -157,7 +157,7 @@ import CreateItem from '@/components/CreateItem'
 import CreateSize from '@/components/CreateSize'
 import CreateBorder from '@/components/CreateBorder'
 import CreateFlavor from '@/components/CreateFlavor'
-import FeedbackDialog from '@/components/FeedbackDialog'
+// import FeedbackDialog from '@/components/FeedbackDialog'
 import { mapActions , mapState } from 'vuex'
 
 export default {
@@ -170,7 +170,7 @@ export default {
     CreateSize,
     CreateBorder,
     CreateFlavor,
-    FeedbackDialog
+    // FeedbackDialog
   },
   
   data () {
@@ -278,7 +278,7 @@ export default {
   },
 
   computed: {
-      ...mapState(['menu'])
+      ...mapState(['vendor'])
   }
 
 //   created: function() {

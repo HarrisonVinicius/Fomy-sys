@@ -31,11 +31,11 @@
                     label="Telefone(Whatsapp) do Estabelecimento"
                     required)
 
-                    v-text-field(
-                    v-model="address"
-                    :rules="addressRules"
-                    label="Endereço do Estabelecimento"
-                    required)
+                    //- v-text-field(
+                    //- v-model="address"
+                    //- :rules="addressRules"
+                    //- label="Endereço do Estabelecimento"
+                    //- required)
                     
                     v-text-field(
                     v-model="password"
@@ -76,10 +76,10 @@
                 v => !!v || 'Insira o Numero',
                 v => v.length == 11 || 'Numero Inválido',
                 ],
-                address: '',
-                addressRules: [
-                v => !!v || 'Insira o Endereço',
-                ],
+                // address: '',
+                // addressRules: [
+                // v => !!v || 'Insira o Endereço',
+                // ],
                 email: '',
                 emailRules: [
                 v => !!v || 'Insira o Email',
@@ -98,27 +98,22 @@
         methods: {
             validate () {
                 if (this.$refs.form.validate()) {
-                    let seller = {
+                    let vendor = {
                         name: this.name,
                         email: this.email,
                         telefone: this.phone,
-                        endereço: this.address,
                         senha: this.password
                     }
-                    this.setSellerName(seller.name)
-                    this.setSellerEmail(seller.email)
-                    this.setSellerWhatsapp(seller.telefone)
-                    this.setSellerAddress(seller.endereço)
-                    this.setSellerPassword(seller.senha)
+                    this.setVendorProfile(vendor)
                     this.snackbar = true
-                    localStorage.setItem('user', JSON.stringify(seller))
+                    localStorage.setItem('user', JSON.stringify(vendor))
                     this.setAuth(true)
                     this.$router.push('/')
                     // this.postUserData()
                 }
             },
 
-            ...mapActions(['setSellerName' , 'setSellerEmail' , 'setSellerWhatsapp' , 'setSellerAddress' , 'setSellerPassword' , 'setAuth'])
+            ...mapActions(['setVendorProfile' , 'setAuth'])
             
             /*
             *

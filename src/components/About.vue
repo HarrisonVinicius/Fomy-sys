@@ -24,33 +24,33 @@
                                     h2 Nome do Estabelecimento 
                                     br
                                     v-layout(row wrap style="display: flex; align-items:center;")
-                                        h3(style="color: grey;") {{ this.info.info.name }}
+                                        h3(style="color: grey;") {{ this.vendor.profile.name }}
                                     
                                     br
                                     br
                                     h2 Slug do Estabelecimento 
                                     br
                                     v-layout(row wrap style="display: flex; align-items:center;")
-                                        h3(style="color: grey;") {{ this.info.info.slug }} 
+                                        h3(style="color: grey;") {{ this.vendor.profile.slug }} 
                                     br
                                     br
                                     h2 Email 
                                     br
                                     v-layout(row wrap style="display: flex; align-items:center;")
-                                        h3(style="color: grey;") {{ this.info.info.email }} 
+                                        h3(style="color: grey;") {{ this.vendor.profile.email }} 
                                     br
                                     br
                                     h2 Telefone (Whatsapp) 
                                     br
                                     v-layout(row wrap style="display: flex; align-items:center;")
-                                        h3(style="color: grey;") {{ this.info.info.whatsapp }} 
+                                        h3(style="color: grey;") {{ this.vendor.profile.telefone }} 
                                     
                                     br
                                     br
                                     h2 Endereço 
                                     br
                                     v-layout(row wrap style="display: flex; align-items:center;")
-                                        h3(style="color: grey;") {{ this.info.info.address }} 
+                                        h3(style="color: grey;") {{ this.vendor.profile.address }} 
                                     br
                                    
                                     //- h2 logo 
@@ -166,10 +166,10 @@ export default {
     
     data () {
         return {     
-            sellerName: '',
-            sellerMail: '',
-            sellerAddress: '',
-            sellerPhone: '',
+            vendorName: '',
+            vendorMail: '',
+            vendorAddress: '',
+            vendorPhone: '',
             SelectValue: '',
             times: [
                 {
@@ -228,10 +228,10 @@ export default {
     },
 
     computed: {
-        ...mapState(['seller']),
+        ...mapState(['vendor']),
 
         info() {
-            return this.seller
+            return this.vendor
         }
 
     }

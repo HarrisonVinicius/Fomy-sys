@@ -50,7 +50,7 @@ export default {
             if(this.Padrao){
               let newCategory = {
                 name: this.CategoryName,
-                categoryType: 'Padrao'
+                type: 'Padrao'
               }
               console.log(newCategory)
               this.createCategory(newCategory)
@@ -59,7 +59,7 @@ export default {
             }else {
               let newCategory = {
                 name: this.CategoryName,
-                categoryType: 'Pizza'
+                type: 'Pizza'
               }
               this.dialogCreateCategory = false
               this.$store.commit('SET_SNACKBAR' , {show: true, text: "Categoria Adicionada ao Menu"})

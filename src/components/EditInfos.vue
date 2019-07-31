@@ -8,23 +8,21 @@
         v-card-text
           v-container(grid-list-md)
               form(action="")
-                v-text-field(label="Slug" v-model="sellerSlug")
-                v-text-field(label="Nome" v-model="sellerName")
+                v-text-field(label="Slug" v-model="vendorSlug")
+                v-text-field(label="Nome" v-model="vendorName")
                 v-text-field(
-                v-model="sellerMail"
+                v-model="vendorMail"
                 label="E-mail"
                 required)
                 
                 v-text-field(
-                v-model="sellerPhone"
+                v-model="vendorPhone"
                 label="Telefone (Whatsapp)"
                 required)
                 
-                v-textarea(
-                v-model="sellerAddress"
-                name="input-7-1"
-                label="Endereço"
-                value="")
+                v-text-field(label="Bairro" v-model="vendorRegion")
+                v-text-field(label="Cidade" v-model="vendorCity")
+                v-text-field(label="Estado" v-model="vendorState")
                 
         v-card-actions
           v-spacer
@@ -42,11 +40,13 @@ export default {
             emailRules: '',
             dialog: false,
             dialogEditInfos: false,
-            sellerSlug: '',
-            sellerName: '',
-            sellerMail: '',
-            sellerPhone: '',
-            sellerAddress: '',
+            vendorSlug: '',
+            vendorName: '',
+            vendorMail: '',
+            vendorPhone: '',
+            vendorRegion: '',
+            vendorCity: '',
+            vendorState: ''
         }
     },
 
@@ -57,34 +57,36 @@ export default {
 
         editInfo() {
             const formData = {
-            slug: this.sellerSlug,
-            name: this.sellerName,
-            email: this.sellerMail,
-            whatsapp: this.sellerPhone,
-            address: this.sellerAddress
+            slug: this.vendorSlug,
+            name: this.vendorName,
+            email: this.vendorMail,
+            telefone: this.vendorPhone,
+            }
+            const formData2 = {
+            bairro: this.vendorRegion,
+            cidade: this.vendorCity,
+            estado: this.vendorState
             }
             console.log(formData)
-            this.setSellerSlug(formData.slug)
-            this.setSellerName(formData.name)
-            this.setSellerEmail(formData.email)
-            this.setSellerWhatsapp(formData.whatsapp)
-            this.setSellerAddress(formData.address)
+            console.log(formData2)
+            this.setVendorProfile(formData)
+            this.setVendorAddress(formData2)
             this.dialogEditInfos = false
         },
         
-        ...mapActions(['setSellerSlug', 'setSellerName', 'setSellerEmail', 'setSellerWhatsapp', 'setSellerLogo', 'setSellerBanner', 'setSellerAddress'])
+        ...mapActions(['setVendorProfile' , 'setVendorAddress'])
     },
 
     computed: {
-      ...mapState(["seller"])
+      ...mapState(["vendor"])
     },
 
     mounted() {
-      this.sellerSlug = this.seller.info.slug
-      this.sellerName = this.seller.info.name
-      this.sellerMail = this.seller.info.email
-      this.sellerPhone = this.seller.info.whatsapp
-      this.sellerAddress = this.seller.info.address
+      this.vendorSlug = this.vendor.profile.slug
+      this.vendorName = this.vendor.profile.name
+      this.vendorMail = this.vendor.profile.email
+      this.vendorPhone = this.vendor.profile.telefone
+      this.vendorAddress = this.vendor.profile.address
     }
 }
 </script>

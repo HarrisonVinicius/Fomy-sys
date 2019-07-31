@@ -3,30 +3,30 @@ import { VendorService } from '@/services/vendor.service'
 export const VendorModule = {
 
   state: {
-    list: [],
-    selected: {
-      reference: null,
-      address: {},
-      catalog: [],
-      payment: {},
-      profile: {},
-      wshifts: [],
-      product: {},
-    },
+    address: {},
+    catalog: [],
+    payment: {},
+    profile: {},
+    wshifts: [],
   },
 
   mutations: {
-    SET_VENDORS_LIST: (state, payload) => { state.list = payload },
-    SET_VENDOR_PROFILE: (state, payload) => { state.selected.profile = payload },
-    SET_VENDOR_CATALOG: (state, payload) => { state.selected.catalog = payload },
-    SET_VENDOR_ADDRESS: (state, payload) => { state.selected.address = payload },
-    SET_VENDOR_PAYMENT: (state, payload) => { state.selected.payment = payload },
-    SET_VENDOR_WSHIFTS: (state, payload) => { state.selected.wshifts = payload },
-    SET_VENDOR_PRODUCT: (state, payload) => { state.selected.product = payload },
-    SET_VENDOR_REFERENCE: (state, slug) => { state.selected.reference = slug },
+
+    SET_VENDOR_PROFILE: (state, payload) => { state.profile = payload },
+    SET_VENDOR_CATALOG: (state, payload) => { state.catalog.push(payload)},
+    SET_VENDOR_ADDRESS: (state, payload) => { state.address = payload },
+    SET_VENDOR_PAYMENT: (state, payload) => { state.payment = payload },
+    SET_VENDOR_WSHIFTS: (state, payload) => { state.wshifts = payload },
+
   },
 
   actions: {
+    
+    createCategory: ({ commit }, payload) => { commit("SET_VENDOR_CATALOG", payload) },
+
+    setVendorProfile: ({ commit }, payload) => { commit("SET_VENDOR_PROFILE", payload) },
+    setVendorAddress: ({ commit }, payload) => { commit("SET_VENDOR_ADDRESS", payload) },
+    
 
     async getVendors({ commit, getters }) {
       const response = await VendorService.getSellersList(getters.credentials)

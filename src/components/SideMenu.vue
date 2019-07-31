@@ -13,7 +13,7 @@
     
             v-list-tile-content
               v-list-tile-title
-                span.title {{this.seller.info.name}}
+                //- span.title {{this.seller.info.name}}
             
 
       v-list(class="pt-0" dense)

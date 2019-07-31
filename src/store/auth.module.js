@@ -3,6 +3,9 @@ import { AuthService } from "@/services/auth.service"
 export const AuthModule = {
 
   state: {
+    auth2: {
+      authenticated: false,
+    },
     api: 'https://api.fomy.app',
     key: '',
     token: null,
@@ -23,6 +26,8 @@ export const AuthModule = {
   },
 
   mutations: {
+    AUTH_AUTHENTICATE: (state, status) => { state.auth2.authenticated = status },
+    
     SET_TOKEN: (state, token) => {
       state.token = token
       localStorage.setItem('session', token)
@@ -34,6 +39,7 @@ export const AuthModule = {
   },
 
   actions: {
+    setAuth({commit}, status) { commit('AUTH_AUTHENTICATE', status) },
 
     async register({ getters }, data) {
       const response = await AuthService.register(getters.credentials, data)
