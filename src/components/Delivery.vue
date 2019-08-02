@@ -8,9 +8,9 @@
                     br
                     br
                     br
-                    h1 Editar Entregas 
+                    h2 Editar Entregas 
                     br
-                    h2(style="color: grey;") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed et culpa molestias! Facilis dolores quae incidunt ipsam dolore reiciendis voluptatibus est vitae, exercitationem, quidem sed iure, ullam tempora numquam laboriosam?
+                    h3(style="color: grey;") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed et culpa molestias! Facilis dolores quae incidunt ipsam dolore reiciendis voluptatibus est vitae, exercitationem, quidem sed iure, ullam tempora numquam laboriosam?
                     br
                     v-divider
                     br
@@ -42,7 +42,7 @@
                                             td
                                                 v-checkbox(label="NÃO ENTREGA" :value="props.item.id" v-model="selected" color="error")
                                                 //- v-switch(
-                                                //- v-model="switch1"
+                                                //- v-model="switch3"
                                                 //- label="`NÃO ENTREGA")                      
           
 </template>

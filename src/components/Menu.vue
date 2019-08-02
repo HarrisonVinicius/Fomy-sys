@@ -8,9 +8,9 @@
             v-layout(row wrap)
                 v-flex(xs2)
                 v-flex(xs10)
-                    h1 Cardápio 
+                    h2 Cardápio 
                     br
-                    h2(style="color: grey;") Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa corporis, perferendis dicta voluptates odit necessitatibus quas aliquam aperiam voluptas eveniet facilis! Perferendis hic dicta vel numquam voluptatibus unde neque!
+                    h3(style="color: grey;") Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa corporis, perferendis dicta voluptates odit necessitatibus quas aliquam aperiam voluptas eveniet facilis! Perferendis hic dicta vel numquam voluptatibus unde neque!
                     br
                     v-divider
                     br
@@ -23,7 +23,7 @@
                     div(v-for="category in vendor.catalog")
                         v-card
                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; background-color: #e8e7e7; display: flex; align-items: center;")
-                                h2 {{category.name}}
+                                h3 {{category.name}}
                                 v-spacer
                                 v-btn(flat color="pink darken-1")
                                     v-icon pause
@@ -36,9 +36,9 @@
                             //- v-card-text
                             //-      div(v-for="CategoryItems in CategoriesItems" :key="CategoryItems.text")
                             //-         v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                            //-             h2 {{ CategoryItems.name }} 
+                            //-             h3 {{ CategoryItems.name }} 
                             //-             v-spacer
-                            //-             h2 R$ {{ CategoryItems.price }} 
+                            //-             h3 R$ {{ CategoryItems.price }} 
                             //-             v-btn(flat color="pink darken-1")
                             //-                 v-icon pause
                             //-                 span Pausar Vendas 
@@ -59,7 +59,7 @@
                     div(v-for="PizzaCategory in PizzaCategories" :key="PizzaCategory.text")
                         v-card
                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; background-color: #e8e7e7; display: flex; align-items: center;")
-                                h2 Pizzas 
+                                h3 Pizzas 
                                 v-spacer
                                 v-btn(flat color="pink darken-1")
                                     v-icon pause
@@ -73,13 +73,13 @@
                                     
                                     
                                     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                        h2 Tamanhos 
+                                        h3 Tamanhos 
                                     
                                     v-card-text
                                         
                                         div(v-for="PizzaSize in PizzaSizes" :key="PizzaSize.text")
                                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                                h2(style="color:grey;") {{ PizzaSize.name }} 
+                                                h3(style="color:grey;") {{ PizzaSize.name }} 
                                                 v-spacer
                                                 v-btn(flat color="pink darken-1")
                                                     v-icon pause
@@ -94,15 +94,15 @@
                                             | Adicionar Item
                                         
                                     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                        h2 Bordas e Massas 
+                                        h3 Bordas e Massas 
                                     
                                     v-card-text
                                         
                                         div(v-for="PizzaPasta in PizzaPastas" :key="PizzaPasta.text")
                                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                                h2(style="color:grey;") {{ PizzaPasta.name }} 
+                                                h3(style="color:grey;") {{ PizzaPasta.name }} 
                                                 v-spacer
-                                                h2(style="color:grey;") R$ {{ PizzaPasta.price }} 
+                                                h3(style="color:grey;") R$ {{ PizzaPasta.price }} 
                                                 v-btn(flat color="pink darken-1")
                                                     v-icon pause
                                                     span Pausar Vendas 
@@ -116,14 +116,14 @@
                                             | Adicionar Item
                                 
                                     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                        h2 Sabores 
+                                        h3 Sabores 
                                     
                                     v-card-text
                                         div(v-for="PizzaFlavor in PizzaFlavors" :key="PizzaFlavor.text")
                                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                                h2(style="color:grey;") {{ PizzaFlavor.name }} 
+                                                h3(style="color:grey;") {{ PizzaFlavor.name }} 
                                                 v-spacer
-                                                h2(style="color:grey;") R$ {{ PizzaFlavor.price }} 
+                                                h3(style="color:grey;") R$ {{ PizzaFlavor.price }} 
                                                 v-btn(flat color="pink darken-1")
                                                     v-icon pause
                                                     span Pausar Vendas 

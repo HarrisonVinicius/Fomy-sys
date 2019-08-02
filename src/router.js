@@ -6,6 +6,7 @@ import Delivery from './components/Delivery.vue'
 import Menu from './components/Menu.vue'
 import Register from './components/Register.vue'
 import Home from './components/Home.vue'
+import Schedule from './components/Schedule.vue'
 
 
 Vue.use(Router)
@@ -20,6 +21,7 @@ export default new Router({
     {path:'/register', component: Register},
     {path:'/menu', component: Menu},
     {path:'/delivery', component: Delivery},
+    {path:'/schedule', component: Schedule},
   ]
 
 })

@@ -53,6 +53,7 @@
           { title: 'Home', icon: 'dashboard', route:'/' },
           { title: 'Cárdapio', icon: 'menu', route:'/menu' },
           { title: 'Informações do Estabelecimento', icon: 'info', route:'/about' },
+          { title: 'Horários', icon: 'timer', route:'/schedule' },
           { title: 'Editar entregas', icon: 'map', route:'/delivery' },  
         ],
         right: null
