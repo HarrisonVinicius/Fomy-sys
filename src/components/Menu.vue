@@ -78,7 +78,7 @@
                                     v-card-text
                                         
                                         div(v-for="PizzaSize in PizzaSizes" :key="PizzaSize.text")
-                                            v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                            v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
                                                 h3(style="color:grey;") {{ PizzaSize.name }} 
                                                 v-spacer
                                                 v-btn(flat color="pink darken-1")
@@ -99,7 +99,7 @@
                                     v-card-text
                                         
                                         div(v-for="PizzaPasta in PizzaPastas" :key="PizzaPasta.text")
-                                            v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                            v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
                                                 h3(style="color:grey;") {{ PizzaPasta.name }} 
                                                 v-spacer
                                                 h3(style="color:grey;") R$ {{ PizzaPasta.price }} 
@@ -120,7 +120,7 @@
                                     
                                     v-card-text
                                         div(v-for="PizzaFlavor in PizzaFlavors" :key="PizzaFlavor.text")
-                                            v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                            v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
                                                 h3(style="color:grey;") {{ PizzaFlavor.name }} 
                                                 v-spacer
                                                 h3(style="color:grey;") R$ {{ PizzaFlavor.price }} 

@@ -16,21 +16,22 @@
                     br
                     v-layout(row wrap)
                     template
-                        v-expansion-panel(v-for='order in orders' :key='order.id' focusable style="margin-bottom: 60px;")
+                        v-expansion-panel(v-for='order in orders' :key='order.id' focusable)
                             v-expansion-panel-content
                                 template(v-slot:header)
-                                    span(style="width: 0px;") 1X
-                                    span(style="width: 30px;") {{ order.item }}
-                                    v-spacer
                                     span {{ order.code }}
-                                    v-spacer
-                                    v-spacer
+                                    span {{ order.deliveryRegion }}
                                     v-spacer
                                     v-spacer
                                     span {{ order.name }}
                                 v-card
                                     v-divider
                                     v-card-text(class="grey lighten-3")
+                                        v-layout(row wrap)
+                                            v-flex(xs12)
+                                                span Items:
+                                                span &nbsp; 1X {{order.item}} 
+                                        br
                                         v-layout(row wrap)
                                             v-flex(xs12)
                                                 span Valor Pago:
@@ -68,7 +69,11 @@
                 item: 'Hamburguer duplo',
                 price: 'R$ 15,00',
                 payment: 'Débito',
-                Delivery: 'Rua das Conchas, 30, Ponta Negra, Natal'
+                deliveryStreet: 'Rua das Conchas',
+                deliveryRegion: 'Lagoa Nova',
+                deliveryCity: 'Natal',
+                deliveryNumber: '30',
+                Delivery: 'Rua das Conchas, 30, Lagoa Nova, Natal'
             },
             {
                 code: '#29122',
@@ -76,7 +81,11 @@
                 item: 'x-tudo',
                 price: 'R$ 18,00',
                 payment: 'Débito',
-                Delivery: 'Rua das Areias, 20, Ponta Negra, Natal'
+                deliveryStreet: 'Rua das Areias',
+                deliveryRegion: 'São Gonçalo do Amarante',
+                deliveryCity: 'Natal',
+                deliveryNumber: '20',
+                Delivery: 'Rua das Areias, 20, São Gonçalo do Amarante, Natal'
             },
             {
                 code: '#33322',
@@ -84,7 +93,11 @@
                 item: 'x-tudo-especial',
                 price: 'R$ 19,50',
                 payment: 'Crédito',
-                Delivery: 'Rua das Aguas, 10, Ponta Negra, Natal'
+                deliveryStreet: 'Rua das Aguas',
+                deliveryRegion: 'Nossa Senhora da Apresentação',
+                deliveryCity: 'Natal',
+                deliveryNumber: '10',
+                Delivery: 'Rua das Aguas, 10, Nossa Senhora da Apresentação, Natal'
             },
          ] 
       }

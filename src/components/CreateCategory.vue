@@ -19,9 +19,6 @@
             v-checkbox(
             v-model="Padrao"
             label="Padrão")
-            
- 
-          small *indicates required field
         
         v-card-actions
           v-spacer

@@ -30,7 +30,7 @@
             v-icon {{ item.icon }}
           v-list-tile-content
             v-list-tile-title 
-              span.title {{ item.title }}
+              span {{ item.title }}
         v-list-tile(
           @click="logout()"
           style="margin-bottom: 15px;"
@@ -39,7 +39,7 @@
             v-icon exit_to_app
           v-list-tile-content
             v-list-tile-title 
-              span.title Sair da Conta
+              span Sair da Conta
         
 </template>
 
@@ -52,7 +52,7 @@
         items: [
           { title: 'Home', icon: 'dashboard', route:'/' },
           { title: 'Cárdapio', icon: 'menu', route:'/menu' },
-          { title: 'Informações do Estabelecimento', icon: 'info', route:'/about' },
+          { title: 'Informações', icon: 'info', route:'/about' },
           { title: 'Horários', icon: 'timer', route:'/schedule' },
           { title: 'Editar entregas', icon: 'map', route:'/delivery' },  
         ],

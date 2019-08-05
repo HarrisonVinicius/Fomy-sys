@@ -19,12 +19,21 @@
                             br
                             v-card
                                 v-card-text
+                                    v-layout(row wrap)
+                                      v-flex
+                                        span Dia
+                                      v-flex
+                                        span MANHÃ
+                                      v-flex
+                                        span TARDE
+                                      v-flex
+                                        span NOITE
+                                    br
                                     v-data-table(
                                     :items="times"
                                     class="elevation-1"
                                     hide-actions
                                     hide-headers)
-                                    
                                         template(v-slot:items="props")
                                             td {{ props.item.name }}
                                             td(class="text-xs-right") {{ props.item.category }}
@@ -53,7 +62,9 @@
                                                         label="FECHA"
                                                         value="12:30:00"
                                                         type="time")
-                                                        
+                                                v-layout
+                                                    v-flex(xs12)
+                                                      v-checkbox(label="FECHADO" v-model="selected" color="error")
                                             td(class="text-xs-right td_border")
                                                 v-layout
                                                     v-flex
@@ -69,8 +80,9 @@
                                                         label="FECHA"
                                                         value="12:30:00"
                                                         type="time")
-                                                        
-
+                                                v-layout
+                                                    v-flex(xs12)
+                                                      v-checkbox(label="FECHADO" v-model="selected" color="error")
                                             td(class="text-xs-right td_border")
                                                 v-layout
                                                     v-flex
@@ -87,21 +99,23 @@
                                                         label="FECHA"
                                                         value="12:30:00"
                                                         type="time")
-
-                                            td(class="text-xs-right td_border")
                                                 v-layout
-                                                    v-flex
-                                                        v-text-field(
-                                                        label="ABRE"
-                                                        value="12:30:00"
-                                                        type="time"
-                                                        class="mr-5")
+                                                    v-flex(xs12)
+                                                      v-checkbox(label="FECHADO" v-model="selected" color="error")
+                                            //- td(class="text-xs-right td_border")
+                                            //-     v-layout
+                                            //-         v-flex
+                                            //-             v-text-field(
+                                            //-             label="ABRE"
+                                            //-             value="12:30:00"
+                                            //-             type="time"
+                                            //-             class="mr-5")
                                                         
-                                                    v-flex
-                                                        v-text-field(
-                                                        label="FECHA"
-                                                        value="12:30:00"
-                                                        type="time")  
+                                            //-         v-flex
+                                            //-             v-text-field(
+                                            //-             label="FECHA"
+                                            //-             value="12:30:00"
+                                            //-             type="time")  
 </template>
 
 <script>
@@ -116,7 +130,8 @@ export default {
 
   data () {
     return {
-      times: [
+     selected: [],
+     times: [
           {
               name: 'SEG',
           },
