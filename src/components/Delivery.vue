@@ -39,8 +39,8 @@
                                             td(class="text-xs-right ")
                                                 v-text-field(label="TEMPO" required)
                                             
-                                            td
-                                                v-checkbox(label="NÃO ENTREGA" :value="props.item.id" v-model="selected" color="error")
+                                            //- td
+                                            //-     v-checkbox(label="NÃO ENTREGA" :value="props.item.id" v-model="selected" color="error")
                                                 //- v-switch(
                                                 //- v-model="switch3"
                                                 //- label="`NÃO ENTREGA")                      
