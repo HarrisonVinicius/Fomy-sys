@@ -87,7 +87,7 @@
                                 
                             v-card-text
                               v-list(subheader)
-                                v-subheade TAMANHOS
+                                v-subheader TAMANHOS
                                 v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
                                   v-list-tile-content
                                     v-list-tile-title(v-html='item.title')

@@ -48,28 +48,33 @@
                                             //-     @blur="$v.select.$touch()")
                                                 
                                             
-                                            td(class="text-xs-right td_border" style="border-left: 1px solid grey;")
+                                            td(class="text-xs-right td_border" style="border-left: 1px solid #e5e5e5;")
+                                                br
                                                 v-layout
                                                     v-flex
                                                         v-text-field(
-                                                        label="ABRE"
+                                                        solo
+                                                        prepend-inner-icon="check_circle"
                                                         value="12:30:00"
                                                         type="time"
                                                         class="mr-5")
                                                         
                                                     v-flex
                                                         v-text-field(
-                                                        label="FECHA"
+                                                        solo
+                                                        prepend-inner-icon="not_interested"
                                                         value="12:30:00"
                                                         type="time")
                                                 v-layout
                                                     v-flex(xs12)
                                                       v-checkbox(label="FECHADO" v-model="selected" color="error")
                                             td(class="text-xs-right td_border")
+                                                br
                                                 v-layout
                                                     v-flex
                                                         v-text-field(
-                                                        label="ABRE"
+                                                        solo
+                                                        prepend-inner-icon="check_circle"
                                                         value="12:30:00"
                                                         type="time"
                                                         class="mr-5")
@@ -77,17 +82,20 @@
 
                                                     v-flex
                                                         v-text-field(
-                                                        label="FECHA"
+                                                        solo
+                                                        prepend-inner-icon="not_interested"
                                                         value="12:30:00"
                                                         type="time")
                                                 v-layout
                                                     v-flex(xs12)
                                                       v-checkbox(label="FECHADO" v-model="selected" color="error")
                                             td(class="text-xs-right td_border")
+                                                br
                                                 v-layout
                                                     v-flex
                                                         v-text-field(
-                                                        label="ABRE"
+                                                        solo
+                                                        prepend-inner-icon="check_circle"
                                                         value="12:30:00"
                                                         type="time"
                                                         class="mr-5")
@@ -96,7 +104,8 @@
 
                                                     v-flex
                                                         v-text-field(
-                                                        label="FECHA"
+                                                        solo
+                                                        prepend-inner-icon="not_interested"
                                                         value="12:30:00"
                                                         type="time")
                                                 v-layout
