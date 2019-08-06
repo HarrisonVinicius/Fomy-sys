@@ -3,7 +3,7 @@
         v-container
             v-layout(style="padding-top: 15%; display: flex; justify-content: center;")
                 v-flex(xs12 sm4)
-                    v-card
+                    v-card(color="white")
                             //- !-- v-img
                             //- src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
                             //- aspect-ratio="2.75"

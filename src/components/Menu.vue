@@ -17,7 +17,12 @@
                     v-btn(flat color="pink darken-1" @click="toggleCreateCategory()")
                         v-icon add
                         span Adicionar Categoria
+                    br
+                    br
+
+
                     
+
                     br
                     br
                     div(v-for="category in vendor.catalog")
@@ -31,7 +36,19 @@
                                 
                                 v-btn(flat color="pink darken-1")
                                     span Editar 
-                                
+                            v-list
+                              v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                v-list-tile-content
+                                  v-list-tile-title(v-html='item.title')
+                                v-list-tile-action
+                                  v-layout(row wrap)
+                                    v-flex
+                                      v-btn(flat style="margin-left: -165px;" color="pink darken-1")
+                                        v-icon pause
+                                        span Pausar Vendas
+                                    v-flex  
+                                      v-btn(flat color="pink darken-1")
+                                        span Editar 
                             
                             //- v-card-text
                             //-      div(v-for="CategoryItems in CategoriesItems" :key="CategoryItems.text")
@@ -69,72 +86,138 @@
                                     span Editar 
                                 
                             v-card-text
-                                v-card
+                              v-list(subheader)
+                                v-subheade TAMANHOS
+                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                  v-list-tile-content
+                                    v-list-tile-title(v-html='item.title')
+                                  v-list-tile-action
+                                    v-layout(row wrap)
+                                      v-flex
+                                        v-btn(flat style="margin-left: -165px;" color="pink darken-1")
+                                          v-icon pause
+                                          span Pausar Vendas
+                                      v-flex  
+                                        v-btn(flat color="pink darken-1")
+                                          span Editar 
+                                v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
+                                    v-icon add 
+                                    | Adicionar Item
+                              v-list(subheader)
+                                v-subheader BORDAS
+                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                  v-list-tile-content
+                                    v-list-tile-title(v-html='item.title')
+                                  v-list-tile-action
+                                    v-layout(row wrap)
+                                      v-flex
+                                        v-btn(flat style="margin-left: -165px;" color="pink darken-1")
+                                          v-icon pause
+                                          span Pausar Vendas
+                                      v-flex  
+                                        v-btn(flat color="pink darken-1")
+                                          span Editar 
+                                v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
+                                    v-icon add 
+                                    | Adicionar Item
+                              v-list(subheader)
+                                v-subheader MASSAS
+                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                  v-list-tile-content
+                                    v-list-tile-title(v-html='item.title')
+                                  v-list-tile-action
+                                    v-layout(row wrap)
+                                      v-flex
+                                        v-btn(flat style="margin-left: -165px;" color="pink darken-1")
+                                          v-icon pause
+                                          span Pausar Vendas
+                                      v-flex  
+                                        v-btn(flat color="pink darken-1")
+                                          span Editar 
+                                v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
+                                    v-icon add 
+                                    | Adicionar Item
+                              v-list(subheader)
+                                v-subheader SABORES
+                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                  v-list-tile-content
+                                    v-list-tile-title(v-html='item.title')
+                                  v-list-tile-action
+                                    v-layout(row wrap)
+                                      v-flex
+                                        v-btn(flat style="margin-left: -165px;" color="pink darken-1")
+                                          v-icon pause
+                                          span Pausar Vendas
+                                      v-flex  
+                                        v-btn(flat color="pink darken-1")
+                                          span Editar 
+                                v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
+                                    v-icon add 
+                                    | Adicionar Item
+                                //- v-card
+                                //-     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                //-         h3 Tamanhos 
                                     
-                                    
-                                    v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                        h3 Tamanhos 
-                                    
-                                    v-card-text
+                                //-     v-card-text
                                         
-                                        div(v-for="PizzaSize in PizzaSizes" :key="PizzaSize.text")
-                                            v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                                h3(style="color:grey;") {{ PizzaSize.name }} 
-                                                v-spacer
-                                                v-btn(flat color="pink darken-1")
-                                                    v-icon pause
-                                                    span Pausar Vendas 
+                                //-         div(v-for="PizzaSize in PizzaSizes" :key="PizzaSize.text")
+                                //-             v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                //-                 h3(style="color:grey;") {{ PizzaSize.name }} 
+                                //-                 v-spacer
+                                //-                 v-btn(flat color="pink darken-1")
+                                //-                     v-icon pause
+                                //-                     span Pausar Vendas 
                                                 
-                                                v-btn(flat color="pink darken-1")
-                                                    span Editar 
+                                //-                 v-btn(flat color="pink darken-1")
+                                //-                     span Editar 
                                             
-                                    v-card-actions
-                                        v-btn(flat color="pink darken-1x" @click="toggleCreateSize()")
-                                            v-icon add 
-                                            | Adicionar Item
+                                //-     v-card-actions
+                                //-         v-btn(flat color="pink darken-1x" @click="toggleCreateSize()")
+                                //-             v-icon add 
+                                //-             | Adicionar Item
                                         
-                                    v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                        h3 Bordas e Massas 
+                                //-     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                //-         h3 Bordas e Massas 
                                     
-                                    v-card-text
+                                //-     v-card-text
                                         
-                                        div(v-for="PizzaPasta in PizzaPastas" :key="PizzaPasta.text")
-                                            v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                                h3(style="color:grey;") {{ PizzaPasta.name }} 
-                                                v-spacer
-                                                h3(style="color:grey;") R$ {{ PizzaPasta.price }} 
-                                                v-btn(flat color="pink darken-1")
-                                                    v-icon pause
-                                                    span Pausar Vendas 
+                                //-         div(v-for="PizzaPasta in PizzaPastas" :key="PizzaPasta.text")
+                                //-             v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                //-                 h3(style="color:grey;") {{ PizzaPasta.name }} 
+                                //-                 v-spacer
+                                //-                 h3(style="color:grey;") R$ {{ PizzaPasta.price }} 
+                                //-                 v-btn(flat color="pink darken-1")
+                                //-                     v-icon pause
+                                //-                     span Pausar Vendas 
                                                 
-                                                v-btn(flat color="pink darken-1")
-                                                    span Editar 
+                                //-                 v-btn(flat color="pink darken-1")
+                                //-                     span Editar 
                                                 
-                                    v-card-actions
-                                        v-btn(flat color="pink darken-1x" @click="toggleCreateBorder()")
-                                            v-icon add 
-                                            | Adicionar Item
+                                //-     v-card-actions
+                                //-         v-btn(flat color="pink darken-1x" @click="toggleCreateBorder()")
+                                //-             v-icon add 
+                                //-             | Adicionar Item
                                 
-                                    v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                        h3 Sabores 
+                                //-     v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                //-         h3 Sabores 
                                     
-                                    v-card-text
-                                        div(v-for="PizzaFlavor in PizzaFlavors" :key="PizzaFlavor.text")
-                                            v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
-                                                h3(style="color:grey;") {{ PizzaFlavor.name }} 
-                                                v-spacer
-                                                h3(style="color:grey;") R$ {{ PizzaFlavor.price }} 
-                                                v-btn(flat color="pink darken-1")
-                                                    v-icon pause
-                                                    span Pausar Vendas 
+                                //-     v-card-text
+                                //-         div(v-for="PizzaFlavor in PizzaFlavors" :key="PizzaFlavor.text")
+                                //-             v-layout(row wrap style="padding: 10px; border-bottom: 1px solid grey; display: flex; align-items: center;")
+                                //-                 h3(style="color:grey;") {{ PizzaFlavor.name }} 
+                                //-                 v-spacer
+                                //-                 h3(style="color:grey;") R$ {{ PizzaFlavor.price }} 
+                                //-                 v-btn(flat color="pink darken-1")
+                                //-                     v-icon pause
+                                //-                     span Pausar Vendas 
                                                 
-                                                v-btn(flat color="pink darken-1")
-                                                    span Editar 
+                                //-                 v-btn(flat color="pink darken-1")
+                                //-                     span Editar 
                                                 
-                                    v-card-actions
-                                        v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
-                                            v-icon add 
-                                            | Adicionar Item
+                                //-     v-card-actions
+                                //-         v-btn(flat color="pink darken-1x" @click="toggleCreateFlavor()")
+                                //-             v-icon add 
+                                //-             | Adicionar Item
                                                    
                                 br
                                 br
@@ -195,7 +278,14 @@ export default {
         //     price: '20,00'
         // },
         // ],
-
+        
+        items: [
+          { active: true, title: 'Xtudo' },
+          { active: true, title: 'Xegg' },
+          { title: 'XtudoEspecial' },
+          { title: 'Xegg2' }
+        ],
+        
         PizzaCategories: [
             'categoria 1',
         ],
