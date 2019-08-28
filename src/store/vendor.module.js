@@ -4,16 +4,34 @@ export const VendorModule = {
 
   state: {
     address: {},
-    catalog: [],
+    catalog: {
+      categories:[]
+    },
     payment: {},
     profile: {},
     wshifts: [],
+    indexEditing: 0
   },
 
   mutations: {
+    SET_INDEX: (state, payload) => { state.indexEditing = payload },
 
     SET_VENDOR_PROFILE: (state, payload) => { state.profile = payload },
-    SET_VENDOR_CATALOG: (state, payload) => { state.catalog.push(payload)},
+    SET_VENDOR_CATALOG: (state, payload) => { 
+      if(state.catalog.categories){
+        state.catalog.categories = [payload , ...state.catalog.categories]
+      }else{
+        state.catalog.categories = [payload]
+      } 
+    },
+    SET_VENDOR_ITEM: (state, payload) => {
+      console.log(payload)
+      if(state.catalog.categories[state.indexEditing].items){
+        state.catalog.categories[state.indexEditing].items = [payload , ...state.catalog.categories[state.indexEditing].items]
+      }else{
+        state.catalog.categories[state.indexEditing].items = [payload]
+      } 
+     },
     SET_VENDOR_ADDRESS: (state, payload) => { state.address = payload },
     SET_VENDOR_PAYMENT: (state, payload) => { state.payment = payload },
     SET_VENDOR_WSHIFTS: (state, payload) => { state.wshifts = payload },
@@ -21,8 +39,10 @@ export const VendorModule = {
   },
 
   actions: {
+    setIndex: ({ commit }, payload) => { commit("SET_INDEX", payload) },
     
     createCategory: ({ commit }, payload) => { commit("SET_VENDOR_CATALOG", payload) },
+    createItemCategory: ({ commit }, payload) => { commit("SET_VENDOR_ITEM", payload) },
 
     setVendorProfile: ({ commit }, payload) => { commit("SET_VENDOR_PROFILE", payload) },
     setVendorAddress: ({ commit }, payload) => { commit("SET_VENDOR_ADDRESS", payload) },

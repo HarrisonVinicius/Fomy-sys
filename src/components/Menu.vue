@@ -20,12 +20,9 @@
                     br
                     br
 
-
-                    
-
                     br
                     br
-                    div(v-for="category in vendor.catalog")
+                    div(v-for="(category, index) in vendor.catalog.categories")
                         v-card
                             v-layout(row wrap style="padding: 15px; border-bottom: 1px solid grey; background-color: #e8e7e7; display: flex; align-items: center;")
                                 h3 {{category.name}}
@@ -37,9 +34,9 @@
                                 v-btn(flat color="pink darken-1")
                                     span Editar 
                             v-list
-                              v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                              v-list-tile(v-for='item in category.items', :key='item.text', avatar='', @click='')
                                 v-list-tile-content
-                                  v-list-tile-title(v-html='item.title')
+                                  v-list-tile-title {{ item.name }}
                                 v-list-tile-action
                                   v-layout(row wrap)
                                     v-flex
@@ -65,7 +62,7 @@
                                         
  
                             v-card-actions
-                                v-btn(flat color="pink darken-1x" @click="toggleCreateItem()")
+                                v-btn(flat color="pink darken-1x" @click="toggleCreateItem(index)")
                                     v-icon add 
                                     | Adicionar Item
                                                  
@@ -88,7 +85,7 @@
                             v-card-text
                               v-list(subheader)
                                 v-subheader TAMANHOS
-                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                v-list-tile(v-for='item in itemspizza', :key='item.title', avatar='', @click='')
                                   v-list-tile-content
                                     v-list-tile-title(v-html='item.title')
                                   v-list-tile-action
@@ -105,7 +102,7 @@
                                     | Adicionar Item
                               v-list(subheader)
                                 v-subheader BORDAS
-                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                v-list-tile(v-for='item in itemspizza', :key='item.title', avatar='', @click='')
                                   v-list-tile-content
                                     v-list-tile-title(v-html='item.title')
                                   v-list-tile-action
@@ -122,7 +119,7 @@
                                     | Adicionar Item
                               v-list(subheader)
                                 v-subheader MASSAS
-                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                v-list-tile(v-for='item in itemspizza', :key='item.title', avatar='', @click='')
                                   v-list-tile-content
                                     v-list-tile-title(v-html='item.title')
                                   v-list-tile-action
@@ -139,7 +136,7 @@
                                     | Adicionar Item
                               v-list(subheader)
                                 v-subheader SABORES
-                                v-list-tile(v-for='item in items', :key='item.title', avatar='', @click='')
+                                v-list-tile(v-for='item in itemspizza', :key='item.title', avatar='', @click='')
                                   v-list-tile-content
                                     v-list-tile-title(v-html='item.title')
                                   v-list-tile-action
@@ -279,9 +276,9 @@ export default {
         // },
         // ],
         
-        items: [
-          { active: true, title: 'Xtudo' },
-          { active: true, title: 'Xegg' },
+        itemspizza: [
+          { title: 'Xtudo' },
+          { title: 'Xegg' },
           { title: 'XtudoEspecial' },
           { title: 'Xegg2' }
         ],
@@ -344,13 +341,13 @@ export default {
         //         .then(function(response){
         //             this.StandartCategories = JSON.parse(response.body)
         //         })
-        // },
-        
+        // },        
         toggleCreateCategory(){
             this.$refs.teste.dialogCreateCategory = !this.$refs.teste.dialogCreateCategory
         },
 
-        toggleCreateItem(){
+        toggleCreateItem(index){
+            this.setIndex(index)
             this.$refs.teste2.dialogCreateItem = !this.$refs.teste2.dialogCreateItem
         },
         
@@ -364,15 +361,14 @@ export default {
         
         toggleCreateFlavor(){
             this.$refs.teste5.dialogCreateFlavor = !this.$refs.teste5.dialogCreateFlavor
-        }  
+        },
+        
+        ...mapActions(['setIndex'])
   },
 
   computed: {
       ...mapState(['vendor'])
-  }
-
-//   created: function() {
-//       this.fetchCategories();
-//   }
+  },
+ 
 }
 </script>
