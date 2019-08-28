@@ -7,9 +7,9 @@
           v-divider
           v-stepper-step(:complete="e1 > 2" step="2" color="success") Informações Obrigatórias
           v-divider
-          v-stepper-step(:complete="e1 > 2" step="3" color="success") Informações Adicionais
+          v-stepper-step(:complete="e1 > 3" step="3" color="success") Informações Adicionais
           v-divider
-          v-stepper-step(step="4") Detalhes
+          v-stepper-step(step="4" color="success") Detalhes
         br
         v-stepper-items
           v-stepper-content(step="1" height="40vh")
