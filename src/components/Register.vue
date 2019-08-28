@@ -3,13 +3,13 @@
     v-flex(xs12)
       v-stepper(v-model="e1" style="width: 100%; height: 100%;")
         v-stepper-header
-          v-stepper-step(:complete="e1 > 1" step="1") Bem Vindo ao Fomy
+          v-stepper-step(:complete="e1 > 1" step="1" color="success") Bem Vindo ao Fomy
           v-divider
-          v-stepper-step(:complete="e1 > 2" step="2") Primeira etapa
+          v-stepper-step(:complete="e1 > 2" step="2" color="success") Informações Obrigatórias
           v-divider
-          v-stepper-step(:complete="e1 > 2" step="3") Segunda etapa
+          v-stepper-step(:complete="e1 > 2" step="3" color="success") Informações Adicionais
           v-divider
-          v-stepper-step(step="4") Ultima etapa
+          v-stepper-step(step="4") Detalhes
         br
         v-stepper-items
           v-stepper-content(step="1" height="40vh")
@@ -20,7 +20,7 @@
                   h3.headline.mb-0 Bem vindo ao Fomy!
                   br
                   div  {{ card_text }} 
-            v-btn(color="primary" @click="e1 = 2")
+            v-btn(dark color="black" @click="e1 = 2")
               | Continuar
             v-btn(flat="" router to="/login") Voltar
           v-stepper-content(step="2" height="40vh")
@@ -68,7 +68,7 @@
                     counter
                     @click:append="show2 = !show2")
               br
-              v-btn(:loading="loading" color="primary" @click="validate" style="margin-left: -1px;")
+              v-btn(:loading="loading" color="black" dark @click="validate" style="margin-left: -1px;")
                 | Continuar
               v-btn(flat="" @click="e1 = 1") Voltar
           
@@ -122,7 +122,7 @@
                       //- label="Endereço do Estabelecimento"
                       //- required)
                 br
-                v-btn(:loading="loading2" color="primary" @click="validate2" style="margin-left: -1px;")
+                v-btn(:loading="loading2" color="black" dark @click="validate2" style="margin-left: -1px;")
                   | Continuar
                 v-btn(flat="" @click="e1 = 4") Pular etapa
                 v-btn(flat="" @click="e1 = 2") Voltar
@@ -151,7 +151,7 @@
                     v-textarea(v-model="details" solo="" name="input-7-4" label="Descrição do Estabelecimento" required)
 
               br
-              v-btn(:loading="loading3" color="primary" @click="validate3" style="margin-left: -1px;")
+              v-btn(:loading="loading3" color="black" dark @click="validate3" style="margin-left: -1px;")
                 | Continuar
               v-btn(flat="" router to="/") Pular Etapa e Continuar
               v-btn(flat="" @click="e1 = 3") Voltar
