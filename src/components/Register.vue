@@ -153,7 +153,7 @@
               br
               v-btn(:loading="loading3" color="primary" @click="validate3" style="margin-left: -1px;")
                 | Continuar
-              v-btn(flat="" @click="e1 = null") Pular Etapa e Continuar
+              v-btn(flat="" router to="/") Pular Etapa e Continuar
               v-btn(flat="" @click="e1 = 3") Voltar
 
 
